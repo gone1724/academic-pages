@@ -117,7 +117,7 @@ a:hover {
     max-width: 100vw;
   }
   .avatar {
-    width: 130px; /* 原来是80px，改为120px或更大 */
+    width: 140px; /* 原来是80px，改为140px或更大 */
     margin-bottom: 0.5em;
   }
   .highlight {
@@ -177,4 +177,10 @@ ul {
 .award-image {
   width: 50px;
   margin-right: 12px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
 }
