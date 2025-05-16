@@ -16,8 +16,9 @@ body {
 }
 
 .avatar {
-  width: 120px;
-  border-radius: 50%;
+  width: 140px;
+  height: auto; /* 保持图片比例 */
+  border-radius: 15px; /* 矩形圆角 */
   display: block;
   margin: 0 auto 1em auto;
 }
