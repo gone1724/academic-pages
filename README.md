@@ -1,3 +1,3 @@
 # academic
 
-hi
+Hi
