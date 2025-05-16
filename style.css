@@ -95,3 +95,11 @@ a:hover {
   font-size: 1.2em;
   color: #000;
 }
+
+.section-divider {
+  width: 80%;
+  margin: 20px auto;
+  border: 0;
+  height: 1px;
+  background-color: #ddd;
+}
