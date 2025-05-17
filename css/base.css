@@ -1,7 +1,7 @@
 /* Base styles and variables */
 :root {
   /* Colors */
-  --primary-color: #007acc;
+  --primary-color: #3b82f6;  /* 现代蓝 */
   --text-color: #333;
   --background-color: #f9f9f9;
   --container-bg: #fff;
@@ -9,7 +9,8 @@
   --highlight-color: #000;
   
   /* Typography */
-  --body-font: "Segoe UI", sans-serif;
+  --body-font: "Source Sans Pro", "Microsoft YaHei", sans-serif;  /* 英文: Source Sans Pro, 中文: 微软雅黑 */
+  --heading-font: "Source Sans Pro", "Microsoft YaHei", sans-serif;  /* 英文: Source Sans Pro, 中文: 微软雅黑 */
   --heading-color: #2c3e50;
   
   /* Spacing */
@@ -35,6 +36,8 @@ body {
 h1, h2 {
   text-align: center;
   color: var(--heading-color);
+  font-family: var(--heading-font);
+  font-weight: 500;  /* 使用medium粗细 */
 }
 
 h1 {
@@ -43,7 +46,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.3em;
+  font-size: 1.5em;  /* 从1.3em增加到1.5em */
   margin: 1.2em 0 0.5em 0;
 }
 
@@ -82,4 +85,9 @@ a:hover {
   border: 0;
   height: 1px;
   background-color: var(--border-color);
+}
+
+/* Specific heading styles */
+h2:has(+ ul) {
+  font-family: "Source Sans Pro", "Microsoft YaHei", sans-serif;
 } 
