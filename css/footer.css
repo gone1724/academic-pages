@@ -10,6 +10,9 @@
 
 .copyright p {
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .copyright a {
@@ -19,4 +22,12 @@
 
 .copyright a:hover {
   text-decoration: underline;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 480px) {
+  .copyright {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.5rem;
+  }
 } 
