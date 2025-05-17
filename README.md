@@ -4,4 +4,4 @@
 
 [https://academic.sixhertz.top/](https://academic.sixhertz.top/)
 
-自购域名 + Github 仓库 + Cloudflare Pages 托管
+方案：自购域名 + Github 仓库 + Cloudflare Pages 托管
