@@ -1,0 +1,85 @@
+/* Base styles and variables */
+:root {
+  /* Colors */
+  --primary-color: #007acc;
+  --text-color: #333;
+  --background-color: #f9f9f9;
+  --container-bg: #fff;
+  --border-color: #ddd;
+  --highlight-color: #000;
+  
+  /* Typography */
+  --body-font: "Segoe UI", sans-serif;
+  --heading-color: #2c3e50;
+  
+  /* Spacing */
+  --container-padding: 2em;
+  --section-spacing: 1em;
+  
+  /* Border radius */
+  --border-radius: 12px;
+  --button-radius: 8px;
+}
+
+/* Reset and base styles */
+body {
+  font-family: var(--body-font);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 2em;
+  color: var(--text-color);
+  font-size: 17px;
+}
+
+/* Typography */
+h1, h2 {
+  text-align: center;
+  color: var(--heading-color);
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.5em 0 0.2em 0;
+}
+
+h2 {
+  font-size: 1.3em;
+  margin: 1.2em 0 0.5em 0;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+ul {
+  line-height: 1.6em;
+  margin-bottom: 1em;
+  padding-left: 1.2em;
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Utility classes */
+.highlight {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--highlight-color);
+  text-align: center;
+  display: inline-block;
+}
+
+.section-divider {
+  width: 80%;
+  margin: 20px auto;
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+} 
