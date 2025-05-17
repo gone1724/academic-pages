@@ -2,6 +2,4 @@
 
 # **A purely static personal academic homepage.**
 
-[https://academic.sixhertz.top/](https://academic.sixhertz.top/)
-
-方案：自购域名 + Github 仓库 + Cloudflare Pages 托管
+方案：自购域名 + Cloudflare 解析 + Github 仓库管理 + Cloudflare Pages 托管
