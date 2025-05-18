@@ -2,8 +2,6 @@
 academic homepage
 </h1>
 
-----------------
-
 <p align="center">一个纯粹的静态个人学术主页。</p>
 <p align="center">A pure and static personal academic homepage.</p>
 
