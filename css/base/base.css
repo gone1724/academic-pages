@@ -9,8 +9,8 @@
   --highlight-color: #000;
   
   /* Typography */
-  --body-font: "Source Sans Pro", "Microsoft YaHei", sans-serif;  /* 英文: Source Sans Pro, 中文: 微软雅黑 */
-  --heading-font: "Source Sans Pro", "Microsoft YaHei", sans-serif;  /* 英文: Source Sans Pro, 中文: 微软雅黑 */
+  --body-font: "Source Sans Pro", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;  /* 更现代的字体栈 */
+  --heading-font: "Source Sans Pro", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;  /* 更现代的字体栈 */
   --heading-color: #2c3e50;
   
   /* Spacing */
@@ -89,5 +89,5 @@ a:hover {
 
 /* Specific heading styles */
 h2:has(+ ul) {
-  font-family: "Source Sans Pro", "Microsoft YaHei", sans-serif;
+  font-family: "Source Sans Pro", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 } 
