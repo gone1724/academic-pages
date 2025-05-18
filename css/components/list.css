@@ -36,6 +36,7 @@
 .list-text strong {
   font-size: 1em;
   color: var(--highlight-color);
+  font-weight: 550;
 }
 
 /* Tablet & Mobile styles */
