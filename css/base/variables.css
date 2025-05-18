@@ -1,0 +1,11 @@
+/* Base variables and custom properties */
+:root {
+  --body-font: 'Noto Sans SC', sans-serif;
+  --heading-font: 'Noto Serif SC', serif;
+  --primary-color: #333;
+  --secondary-color: #666;
+  --background-color: #fff;
+  --text-color: #333;
+  --link-color: #0066cc;
+  --border-color: #ddd;
+} 
