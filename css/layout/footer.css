@@ -6,6 +6,7 @@
   text-align: center;
   color: #666;
   font-size: 0.9rem;
+  box-sizing: border-box;
 }
 
 .copyright p {
@@ -32,6 +33,8 @@
   .copyright {
     font-size: 0.8rem;
     padding: 0.4rem 0.5rem;
+    margin: 0.3rem auto;
+    width: 100%;
   }
   
   .copyright p {
