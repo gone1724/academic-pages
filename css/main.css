@@ -1,8 +1,9 @@
 /* Main CSS file that imports all modules */
-@import 'base.css';
-@import 'layout.css';
-@import 'components.css';
-@import 'language-switch.css';
-@import 'footer.css';
-@import 'component_list.css';
-@import 'component_contact.css';
+@import 'base/variables.css';
+@import 'base/base.css';
+@import 'layout/layout.css';
+@import 'components/components.css';
+@import 'components/language-switch.css';
+@import 'layout/footer.css';
+@import 'components/list.css';
+@import 'components/contact.css';
