@@ -1,8 +1,11 @@
-# academic homepage
+<h1 align="center">
+academic homepage
+</h1>
 
-> 一个纯粹的静态个人学术主页。
->
-> A pure and static personal academic homepage.
+----------------
+
+<p align="center">一个纯粹的静态个人学术主页。</p>
+<p align="center">A pure and static personal academic homepage.</p>
 
 ## Solusion
 
