@@ -1,26 +1,29 @@
 /* Layout styles */
 .container {
   max-width: 700px;
-  margin: auto;
+  width: 100%;
+  min-height: calc(100vh - 3rem);
+  margin: 0 auto;
   background: var(--container-bg);
   padding: var(--container-padding);
   border-radius: var(--border-radius);
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   position: relative;
+  box-sizing: border-box;
 }
 
 /* Responsive styles */
 @media (max-width: 600px) {
   body {
-    padding: 0.5em;
-    font-size: 15px;
+    padding: 0;
   }
   
   .container {
     padding: 1em;
     border-radius: 0;
     box-shadow: none;
-    max-width: 100vw;
+    max-width: 100%;
+    min-height: calc(100vh - 2rem);
   }
   
   .highlight {
