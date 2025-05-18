@@ -18,10 +18,25 @@
 }
 
 @media (max-width: 600px) {
+  .list-container {
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+  }
   .list-item {
     flex-direction: row;
     padding: 8px;
     margin-bottom: 12px;
+    align-items: flex-start;
+  }
+
+  .list-image {
+    width: 40px;
+    margin-right: 8px;
+  }
+
+  .list-text {
+    font-size: 0.95em;
   }
 }
 
