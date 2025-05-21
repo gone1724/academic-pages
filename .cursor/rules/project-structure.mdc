@@ -1,0 +1,13 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Project Structure Guide
+
+本项目的主要入口文件为 [index.html](mdc:index.html) 和 [zh/index.html](mdc:zh/index.html)。
+
+- [index.html](mdc:index.html)：英文主页，包含 Huanze Liu 的学术信息，包括教育背景、研究方向、获奖情况及联系方式。
+- [zh/index.html](mdc:zh/index.html)：中文主页，内容与英文主页对应，面向中文用户。
+
+两者均包含 meta 描述、样式引用、头像、教育经历、研究方向、荣誉奖项、联系方式等结构。
