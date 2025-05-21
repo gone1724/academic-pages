@@ -1,0 +1,51 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Academic Homepage Project Guide
+
+## Project Overview
+This is a static academic homepage project using pure HTML and CSS, hosted on Cloudflare Pages.
+
+## Key Files
+- Main entry points:
+  - [index.html](mdc:index.html) - English version
+  - [zh/index.html](mdc:zh/index.html) - Chinese version
+
+## CSS Structure
+The CSS is organized into modular components:
+- [css/main.css](mdc:css/main.css) - Main CSS file that imports all modules
+- [css/base/base.css](mdc:css/base/base.css) - Base styles and variables
+- [css/layout/layout.css](mdc:css/layout/layout.css) - Layout styles
+- [css/components/components.css](mdc:css/components/components.css) - Component styles
+- [css/components/contact.css](mdc:css/components/contact.css) - Contact section styles
+- [css/components/language-switch.css](mdc:css/components/language-switch.css) - Language switcher styles
+- [css/components/list.css](mdc:css/components/list.css) - List styles for awards section
+
+## Font Loading Strategy
+The project uses Source Sans Pro font with the following optimization:
+- Font files are preloaded using `<link rel="preload">`
+- Font display strategy uses `font-display: swap`
+- System fonts are used as fallback
+- Font weights: 400 (regular), 500 (medium), 600 (semibold)
+
+## Image Assets
+- Avatar images: `/image/avatar/`
+- Award certificates: `/image/awards/`
+- Icons: `/image/logo/`
+- QR code: `/image/QRcode/`
+
+## Best Practices
+1. All images use WebP format for better compression
+2. Images are lazy loaded using `loading="lazy"`
+3. Font loading is optimized to prevent render blocking
+4. Responsive design with mobile-first approach
+5. Semantic HTML structure
+6. CSS variables for consistent theming
+
+## Deployment
+- Hosted on Cloudflare Pages
+- Custom domain configuration
+- SSL/TLS enabled
+- Automatic deployment from GitHub repository
