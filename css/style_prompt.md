@@ -35,6 +35,7 @@ This document describes the styling rules used in this repo so an AI agent can q
   - Others may use repo variables (`--blue`, `--green`, `--pink`, `--yellow`).
 
 ### 3.2 Language Switch
+- `.language-switch` positioned absolutely at top-right corner (`position: absolute; top: 20px; right: 20px`).
 - `.language-switch a` is a colored pill with hard-edge shadow.
 - Background: `#f7f1f0`; border: 2px solid black; radius: 16px; same hover/active shadow pattern as social badges.
 
