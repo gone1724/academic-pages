@@ -14,7 +14,7 @@
 /* Flatten accidentally nested panels */
 .panel .panel { border: none; box-shadow: none; padding: 0; margin: 0; }
 
-/* Summary grid removed */
+ 
 
 /* Pills (tabs) */
 .pills { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 10px 0 6px 0; }
@@ -26,8 +26,7 @@
 .panel .list-image { width: 56px; border: 1px solid rgba(0,0,0,0.25); border-radius: 8px; box-shadow: var(--soft-shadow); }
 .panel .list-text strong { font-weight: 700; }
 
-/* Section without frame (for Education, Interests) */
-.section { margin: 16px 0 22px 0; }
+ 
 
 /* For sections that are still plain h2 + ul (direct children of container) */
 .container > h2 + ul,
@@ -92,6 +91,6 @@ h2:has(+ .contact-row) { display: none !important; }
 .social-item.rose .badge { background: #c06c84; }
 
 /* Responsive */
-/* summary-grid responsive removed */
+ 
 
 /* No zh-specific theme; keep EN/zh identical */

@@ -1,135 +1,6 @@
-/* Base styles and variables */
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/sourcesanspro/v22/6xK1dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+/* Base styles and variables (consolidated, no visual change) */
 
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/sourcesanspro/v22/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/sourcesanspro/v22/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwkxdu.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-:root {
-  /* Colors */
-  --primary-color: #3b82f6;  /* 现代蓝 */
-  --text-color: #333;
-  --background-color: #f9f9f9;
-  --container-bg: #fff;
-  --border-color: #ddd;
-  --highlight-color: #000;
-  
-  /* Typography */
-  --body-font: "Source Sans Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-  --heading-font: "Source Sans Pro", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-  --heading-color: #2c3e50;
-  
-  /* Spacing */
-  --container-padding: 2em;
-  --section-spacing: 1em;
-  
-  /* Border radius */
-  --border-radius: 12px;
-  --button-radius: 8px;
-}
-
-/* Reset and base styles */
-html, body {
-  margin: 0;
-  padding: 0;
-  /* Remove full-viewport constraint so footer hugs content */
-  min-height: auto;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  font-family: var(--body-font);
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-size: 17px;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding: 0.3em;
-}
-
-/* Typography */
-h1, h2 {
-  text-align: center;
-  color: var(--heading-color);
-  font-family: var(--heading-font);
-  font-weight: 500;  /* 使用medium粗细 */
-}
-
-h1 {
-  font-size: 2em;
-  margin: 0.5em 0 0.2em 0;
-}
-
-h2 {
-  font-size: 1.3em; 
-  margin: 1.2em 0 0.5em 0;
-}
-
-p {
-  margin: 0 0 1em 0;
-}
-
-ul {
-  line-height: 1.6em;
-  margin-bottom: 1em;
-  padding-left: 1.2em;
-}
-
-/* Links */
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Utility classes */
-.highlight {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: var(--highlight-color);
-  text-align: center;
-  display: inline-block;
-}
-
-.section-divider {
-  width: 80%;
-  margin: 20px auto;
-  border: 0;
-  height: 1px;
-  background-color: var(--border-color);
-}
-
-/* Specific heading styles */
-h2:has(+ ul) {
-  font-family: "Source Sans Pro", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-} 
-/* Base styles and variables (soft dashboard) */
+/* Fonts */
 @font-face {
   font-family: 'Source Sans Pro';
   font-style: normal;
@@ -174,7 +45,6 @@ h2:has(+ ul) {
   --yellow: #f6cf66;
   --purple: #c8b5ff;
   --orange: #ffb78a;
-  /* Extra accents requested */
   --lavender: #aa96da;
   --tangerine: #ffaa64;
   --rose: #c06c84;
@@ -200,7 +70,7 @@ h2:has(+ ul) {
 html, body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  min-height: auto; /* let content height drive footer position */
   width: 100%;
   overflow-x: hidden;
 }
@@ -236,25 +106,12 @@ h2 {
   padding-left: 2ch;
 }
 
-p {
-  margin: 0 0 1em 0;
-}
-
-ul {
-  line-height: 1.6em;
-  margin-bottom: 1em;
-  padding-left: 1.2em;
-}
+p { margin: 0 0 1em 0; }
+ul { line-height: 1.6em; margin-bottom: 1em; padding-left: 1.2em; }
 
 /* Links */
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
+a { color: var(--primary-color); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 /* Utility classes */
 .highlight {
@@ -271,3 +128,4 @@ a:hover {
 h2:has(+ ul) {
   font-family: "Source Sans Pro", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
+

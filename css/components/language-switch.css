@@ -16,7 +16,7 @@
   background-color: #f7f1f0;
   box-shadow: 2px 2px 0px #000000; /* hard edge shadow */
   transition: transform 160ms ease, box-shadow 160ms ease;
-  font-weight: 700;
+  font-weight: 400; /* no bold */
 }
 
 .language-switch a:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0px #000000; }
