@@ -2,7 +2,7 @@
 .language-switch {
   position: absolute;
   top: 20px;
-  left: 15px;
+  right: 20px;
   z-index: 1000;
 }
 
