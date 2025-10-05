@@ -1,7 +1,7 @@
 /* Footer styles */
 .copyright {
   max-width: 800px;
-  margin: 0.6rem auto 0;
+  margin: 0.3rem auto 0; /* closer to content */
   padding: 0.5rem 0;
   text-align: center;
   color: #666;

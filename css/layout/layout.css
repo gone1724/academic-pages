@@ -1,13 +1,18 @@
 /* Layout styles */
 .container {
-  max-width: 700px;
+  max-width: 980px;
   width: 100%;
-  min-height: calc(100vh - 3rem);
+  /* No forced min-height: let content define height */
   margin: 0 auto;
-  background: var(--container-bg);
+  /* Let panels float on the page background so the page
+     doesn’t look like a big frameless rectangle */
+  background: transparent;
   padding: var(--container-padding);
-  border-radius: var(--border-radius);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  padding-bottom: 0.2rem; /* tighten gap above footer */
+  border-radius: 0;
+  /* Remove outer frame while keeping layout intact */
+  border: none;
+  box-shadow: none;
   position: relative;
   box-sizing: border-box;
 }
@@ -20,10 +25,12 @@
   
   .container {
     padding: 1em;
+    padding-bottom: 0.2rem; /* tighter gap on mobile */
     border-radius: 0;
     box-shadow: none;
+    border: none;
     max-width: 100%;
-    min-height: calc(100vh - 2rem);
+    /* No forced min-height on mobile */
   }
   
   .highlight {
@@ -34,10 +41,10 @@
     font-size: 1.5em;
     margin: 0.3em 0;
   }
-  
+
   h2 {
-    font-size: 1.1em;
-    margin: 1em 0 0.5em 0;
+    font-size: 1em;
+    margin: 0.8em 0 0.4em 0;
   }
   
   ul {

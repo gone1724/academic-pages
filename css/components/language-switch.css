@@ -8,15 +8,16 @@
 
 .language-switch a {
   text-decoration: none;
-  color: var(--text-color);
-  padding: 5px 10px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--button-radius);
+  color: #111;
+  padding: 8px 14px;
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
   margin-left: 5px;
-  background-color: #f0f0f0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background-color: #f7f1f0;
+  box-shadow: 2px 2px 0px #000000; /* hard edge shadow */
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  font-weight: 700;
 }
 
-.language-switch a:hover {
-  background-color: #e5e5e5;
-} 
+.language-switch a:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0px #000000; }
+.language-switch a:active { transform: translate(0,0); box-shadow: 1px 1px 0px #000000; }
