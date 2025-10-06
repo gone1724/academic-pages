@@ -108,3 +108,26 @@
 .btn.green { background: var(--green); }
 .btn.pink { background: var(--pink); }
 .btn.yellow { background: var(--yellow); }
+
+/* Tag container */
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.tag-container span {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 6px 14px;
+  font-size: 0.9em;
+  box-shadow: var(--soft-shadow);
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.tag-container span:hover {
+  transform: translateY(-2px);
+  background: var(--hover-bg, #f5f5f5);
+}
