@@ -1,25 +1,48 @@
-<h1 align="center">
-Academic Homepage
-</h1>
+<h1 align="center">Academic Homepage / 学术主页</h1>
 
-<p align="center">一个纯粹的静态个人学术主页。</p>
-<p align="center">A pure and static personal academic homepage.</p>
+<p align="center">纯静态学术个人主页（EN/中文双语）</p>
+<p align="center">A pure static personal academic homepage (EN/ZH bilingual)</p>
 
-## Solusion 解决方案
+## 概览 Overview
 
-自购域名 + Cloudflare DNS 解析 + Github 仓库管理 + Cloudflare Pages 托管
+- 纯静态站点，无构建流程与包管理器（HTML + CSS）。
+- 双语内容：英文（根目录）与中文（`zh/`）。
+- 云端托管：Cloudflare Pages（仓库：GitHub）。
+- 模块化 CSS 架构：`base → layout → components`。
 
-Self-purchased domain + Cloudflare DNS resolution + GitHub repository management + Cloudflare Pages hosting
+## 目录结构 Project Structure
 
-* README.md:1 概述站点定位为纯静态学术主页，并明确 Cloudflare+GitHub Pages 的部署方案及 GPLv3 许可信息。
-* index.html:1 为英文主页，内嵌语言切换、头像与教育/研究/奖励等板块的完整静态内容。
-* zh/index.html:1 提供中文镜像页，结构与英文版一致，通过顶部语言切换互相跳转，并引用相同样式与资源。
-* css/main.css:1 汇总导入 base/layout/components 模块化样式文件，**css/** 目录下按照基础变量、布局、组件分别组织子样式。
-* robots.txt:1 与 sitemap.xml:1 已配置基础爬虫策略和中英双首页入口，有利于 SEO；根目录还包含 google46a1fac61800863f.html 用于站点验证。
-* **image/** 目录分组存放头像、奖项、Logo、二维码等资源，支撑页面展示。
+```
+academic-pages/
+├── index.html              # English homepage
+├── zh/
+│   └── index.html          # Chinese homepage
+├── css/
+│   ├── main.css            # Entry point importing all modules
+│   ├── base/
+│   │   └── base.css        # Variables, resets, typography
+│   ├── layout/
+│   │   ├── layout.css      # Grid, container, spacing
+│   │   └── footer.css      # Footer-specific styles
+│   ├── components/
+│   │   ├── components.css  # Component module aggregator
+│   │   ├── dashboard.css   # Dashboard section styles
+│   │   ├── language-switch.css
+│   │   ├── contact.css
+│   │   └── list.css
+│   └── style_prompt.md     # UI spec for AI agents
+├── images/                 # Avatar, awards, logos, QR codes
+├── sitemap.xml
+├── robots.txt
+└── google46a1fac61800863f.html  # Google site verification
+```
 
-## License 许可证
+## 部署 Deployment
 
-该项目使用 GNU 通用公共许可证 v3.0 授权 - 有关详细信息，请参阅 [LICENSE](./LICENSE) 文件。
+- 分支：`master` 自动部署；根目录：`/`；无需构建命令。（推荐Cloudflare Pages）
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](./LICENSE) file for details.
+## 许可证 License
+
+本项目使用 GNU GPL v3.0 开源许可证，详见 `LICENSE`。
+
+This project is licensed under the GNU General Public License v3.0. See `LICENSE` for details.
