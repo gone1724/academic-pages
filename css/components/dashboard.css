@@ -72,7 +72,7 @@ h2:has(+ .contact-row) { display: none !important; }
 .contact-row { display: none !important; }
 
 /* Colored rounded-square backgrounds for icon area */
-.social-item .badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 2px solid var(--border-color); border-radius: 10px; background: var(--blue); }
+.social-item .badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 1.5px solid var(--border-color); border-radius: 10px; background: var(--blue); }
 .social-item.c1 .badge { background: var(--blue); }
 .social-item.c2 .badge { background: var(--green); }
 .social-item.c3 .badge { background: var(--purple); }
