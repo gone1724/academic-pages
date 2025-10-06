@@ -3,7 +3,7 @@
 <p align="center">纯静态学术个人主页（EN/中文双语）</p>
 <p align="center">A pure static personal academic homepage (EN/ZH bilingual)</p>
 
-[![Homepage Screenshot](https://raw.githubusercontent.com/gone1724/academic-sources/master/Screenshot/homepage.png)](https://academic-24s.pages.dev/)
+[![Homepage Screenshot](https://cdn.jsdelivr.net/gh/gone1724/academic-sources@master/Screenshot/homepage.png)](https://academic-24s.pages.dev/)
 
 ## 概览 Overview
 
