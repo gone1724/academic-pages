@@ -22,12 +22,13 @@ academic-pages/
 │   ├── layout/
 │   │   ├── layout.css      # Grid, container, spacing
 │   │   └── footer.css      # Footer-specific styles
-│   └── components/
-│       ├── components.css  # Component module aggregator
-│       ├── dashboard.css   # Dashboard section styles
-│       ├── language-switch.css
-│       ├── contact.css
-│       └── list.css
+│   ├── components/
+│   │   ├── components.css  # Component module aggregator (includes tag container)
+│   │   ├── dashboard.css   # Dashboard section styles
+│   │   ├── language-switch.css
+│   │   ├── contact.css
+│   │   └── list.css
+│   └── style_prompt.md     # UI spec for AI agents
 ├── images/                 # Avatar, awards, logos, QR codes
 ├── .vscode/
 │   └── settings.json       # Live Server on port 5503
@@ -121,10 +122,11 @@ refactor: 重构CSS模块化结构
 
 ### Adding New Content Section
 1. Add HTML structure to both `index.html` and `zh/index.html`
-2. Create new component CSS file in `css/components/`
-3. Import in `css/components/components.css`
+2. Create new component CSS file in `css/components/` OR add styles to `components.css`
+3. Import in `css/components/components.css` (if new file created)
 4. Test responsive behavior
 5. Update sitemap if new page route
+6. Document in `css/style_prompt.md` if creating reusable UI pattern
 
 ### Modifying Styles
 1. Identify correct CSS module (base/layout/components)

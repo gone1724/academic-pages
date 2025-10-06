@@ -44,6 +44,16 @@ This document describes the styling rules used in this repo so an AI agent can q
 - List item `.panel .list-item`: 1px black border, rounded 16px, inner spacing 10px.
 - Thumbnail `.panel .list-image`: width ≈56px, 1px `rgba(0,0,0,.25)` border, 8px radius, subtle shadow.
 
+### 3.4 Tag Container
+- `.tag-container`: flexible container for displaying tags/keywords in pill format.
+- Structure: `div.tag-container > span` (each span is a tag)
+- Styles:
+  - Container: `display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px`
+  - Tags: white background, 2px black border, fully rounded (`border-radius: 999px`)
+  - Padding: `6px 14px`, font-size: `0.9em`
+  - Shadow: same hard-edge shadow pattern as other components
+  - Hover effect: slight lift (`translateY(-2px)`) with background color change
+
 ## 4. CSS Variable Hints
 
 Recommended variables (already used in this repo):
@@ -73,6 +83,15 @@ Recommended variables (already used in this repo):
     <ul class="list-container">
       <li class="list-item"><img class="list-image" ... /><div class="list-text">...</div></li>
     </ul>
+  </div>
+
+  <div class="panel">
+    <h2>Interests</h2>
+    <div class="tag-container">
+      <span>Tag 1</span>
+      <span>Tag 2</span>
+      <span>Tag 3</span>
+    </div>
   </div>
 </div>
 ```

@@ -13,6 +13,7 @@ build/
 # IDE
 .vscode/
 .claude/
+CLAUDE.md
 .idea/
 *.swp
 *.swo
