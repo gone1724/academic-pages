@@ -12,6 +12,7 @@ build/
 
 # IDE
 .vscode/
+.claude/
 .idea/
 *.swp
 *.swo
