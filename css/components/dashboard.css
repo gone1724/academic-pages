@@ -6,7 +6,7 @@
   border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
   box-shadow: 2px 2px 0px #000000; /* hard edge shadow around section cards */
-  padding: 16px 18px;
+  padding: 6px 18px;
   margin: 16px 0 24px 0;
 }
 /* Reduce the gap before footer: last section card has smaller bottom margin */
@@ -22,7 +22,7 @@
 
 /* Lists override */
 .panel .list-container { margin: 0; padding: 0; }
-.panel .list-item { margin-bottom: 12px; padding: 10px; background: #fff; border: 1px solid var(--border-color); border-radius: 16px; box-shadow: var(--soft-shadow); }
+.panel .list-item { margin-bottom: 14px; padding: 10px; background: #fff; border: 1px solid var(--border-color); border-radius: 14px; box-shadow: var(--soft-shadow); }
 .panel .list-image { width: 56px; border: 1px solid rgba(0,0,0,0.25); border-radius: 8px; box-shadow: var(--soft-shadow); }
 .panel .list-text strong { font-weight: 700; }
 

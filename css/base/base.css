@@ -100,10 +100,10 @@ h1 {
 }
 
 h2 {
-  font-size: 1.15em;
-  margin: 0.8rem 0 0.6rem 0;
+  font-size: 1.2em;
+  margin: 0.2rem 0 0.6rem 0;
   text-align: left;
-  padding-left: 2ch;
+  padding-left: 1ch;
 }
 
 p { margin: 0 0 1em 0; }
