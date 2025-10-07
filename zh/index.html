@@ -296,5 +296,18 @@
         >
       </p>
     </footer>
+
+    <script>
+      // Fix lightbox browser history issue on mobile
+      document.addEventListener('DOMContentLoaded', function() {
+        const closeButtons = document.querySelectorAll('.lightbox__close');
+        closeButtons.forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            history.back();
+          });
+        });
+      });
+    </script>
   </body>
 </html>
