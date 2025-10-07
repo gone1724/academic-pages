@@ -1,10 +1,10 @@
 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none">
-
  <g>
   <title>Layer 1</title>
-  <g stroke="null" id="svg_3">
-   <path stroke="#000000" id="svg_1" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="m2.62783,7.08328l7.32362,5.38517c1.26002,0.92649 2.99241,0.92649 4.25243,0l7.32362,-5.38523"/>
-   <rect stroke="#000000" id="svg_2" stroke-linecap="round" stroke-width="2" rx="2" height="16.21359" width="21.26213" y="4.76699" x="1.4466"/>
+  <g id="svg_3" stroke="null">
+   <path d="m2.58299,6.21372l7.32362,5.38517c1.26002,0.92649 2.99241,0.92649 4.25243,0l7.32362,-5.38523" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="svg_1" stroke="#000000"/>
+   <rect x="1.40176" y="3.89743" width="21.26213" height="16.21359" rx="2" stroke-width="2" stroke-linecap="round" id="svg_2" stroke="#000000"/>
   </g>
  </g>
+
 </svg>

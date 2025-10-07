@@ -56,7 +56,7 @@
 .social-item { display: inline-flex; align-items: center; gap: 8px; padding: 8px 10px; border: 2px solid var(--border-color); border-radius: 16px; background: #fff; text-decoration: none; color: #111; box-shadow: 2px 2px 0px #000000; transition: transform 160ms ease, box-shadow 160ms ease; }
 .social-item:hover { transform: translate(-1px,-1px); box-shadow: 3px 3px 0px #000000; text-decoration: none; }
 .social-item:active { transform: translate(0,0); box-shadow: 1px 1px 0px #000000; }
-.social-item img { width: 18px; height: 18px; display: inline-block; }
+.social-item img { width: 20px; height: 20px; display: block; }
 .social-item span { font-weight: 600; font-size: 0.95em; }
 /* visual ordering of social buttons */
 .social-row { display: flex; }
