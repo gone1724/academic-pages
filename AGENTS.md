@@ -146,22 +146,28 @@ refactor: 重构CSS模块化结构
 7. Update both language versions if content image
 
 ### Lightbox Image Gallery
-The project uses pure CSS `:target` technique for image zoom functionality:
+The project uses pure CSS checkbox technique for image zoom functionality:
 - **Thumbnails**: Use `-lite.webp` suffix, add `loading="lazy"`
 - **Lightbox HTML structure**:
   ```html
-  <a href="#lightbox-id"><img src="thumb-lite.webp" loading="lazy" /></a>
+  <!-- Trigger (thumbnail or social link) -->
+  <label for="lightbox-id" aria-label="View image">
+    <img src="thumb-lite.webp" alt="Description" class="list-image" loading="lazy" />
+  </label>
 
-  <div id="lightbox-id" class="lightbox">
-    <a href="#close" class="lightbox__backdrop"></a>
+  <!-- Lightbox modal -->
+  <input type="checkbox" id="lightbox-id" class="lightbox__trigger" />
+  <div class="lightbox" aria-modal="true" role="dialog">
     <div class="lightbox__content">
-      <img class="lightbox__img" src="full-image.webp" loading="lazy" />
-      <a class="lightbox__close" href="#close">×</a>
+      <img class="lightbox__img" src="full-image.webp" alt="Description" loading="lazy" />
+      <label class="lightbox__close" for="lightbox-id" aria-label="Close">×</label>
     </div>
   </div>
   ```
-- **Features**: Click thumbnail to zoom, click background/close button to dismiss
+- **Features**: Click thumbnail/label to open, click close button or background to dismiss
+- **Advantages**: No browser history pollution (unlike `:target`), better UX on mobile
 - **Performance**: All lightbox images use lazy loading
+- **Accessibility**: Includes ARIA attributes (aria-modal, aria-label, role)
 - **Styling**: Defined in `css/components/lightbox.css`
 
 ### Updating Metadata
