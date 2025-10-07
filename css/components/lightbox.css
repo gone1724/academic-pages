@@ -6,7 +6,14 @@
   --radius: 999px;
 }
 
-/* Lightbox（:target 技术） */
+/* 隐藏 checkbox */
+.lightbox__trigger {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Lightbox（checkbox 技术） */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -19,8 +26,8 @@
   backdrop-filter: blur(2px); /* 轻微虚化背景 */
 }
 
-/* 当被锚点命中（打开）时显示 */
-.lightbox:target {
+/* 当 checkbox 被选中时显示 */
+.lightbox__trigger:checked + .lightbox {
   display: flex;
 }
 
@@ -81,16 +88,19 @@
 }
 
 /* 缩略图点击效果 */
-.list-item a {
+.list-item a,
+.list-item label {
   display: inline-block;
   cursor: pointer;
 }
 
-.list-item a img {
+.list-item a img,
+.list-item label img {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.list-item a:hover img {
+.list-item a:hover img,
+.list-item label:hover img {
   transform: translateY(-2px);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
 }
