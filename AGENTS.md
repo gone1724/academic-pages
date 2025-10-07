@@ -27,7 +27,8 @@ academic-pages/
 │   │   ├── dashboard.css   # Dashboard section styles
 │   │   ├── language-switch.css
 │   │   ├── contact.css
-│   │   └── list.css
+│   │   ├── list.css
+│   │   └── lightbox.css    # Pure CSS lightbox for image zoom
 │   └── style_prompt.md     # UI spec for AI agents
 ├── images/                 # Avatar, awards, logos, QR codes
 ├── .vscode/
@@ -138,9 +139,30 @@ refactor: 重构CSS模块化结构
 ### Adding Images
 1. Place in appropriate `images/` subdirectory
 2. Use WebP format when possible for performance
-3. Include alt text in HTML for accessibility
-4. Optimize file size before committing
-5. Update both language versions if content image
+3. Provide both lite (thumbnail) and full-size versions for images with lightbox
+4. Include alt text in HTML for accessibility
+5. Add `loading="lazy"` attribute for performance optimization
+6. Optimize file size before committing
+7. Update both language versions if content image
+
+### Lightbox Image Gallery
+The project uses pure CSS `:target` technique for image zoom functionality:
+- **Thumbnails**: Use `-lite.webp` suffix, add `loading="lazy"`
+- **Lightbox HTML structure**:
+  ```html
+  <a href="#lightbox-id"><img src="thumb-lite.webp" loading="lazy" /></a>
+
+  <div id="lightbox-id" class="lightbox">
+    <a href="#close" class="lightbox__backdrop"></a>
+    <div class="lightbox__content">
+      <img class="lightbox__img" src="full-image.webp" loading="lazy" />
+      <a class="lightbox__close" href="#close">×</a>
+    </div>
+  </div>
+  ```
+- **Features**: Click thumbnail to zoom, click background/close button to dismiss
+- **Performance**: All lightbox images use lazy loading
+- **Styling**: Defined in `css/components/lightbox.css`
 
 ### Updating Metadata
 - Sitemap: Update `lastmod` date when content changes
