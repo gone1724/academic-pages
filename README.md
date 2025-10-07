@@ -1,14 +1,14 @@
-<h1 align="center">📚 Academic Homepage / 学术主页</h1>
+<h1 align="center">📚 学术主页 / Academic Homepage</h1>
 
-<p align="center">✨ 纯静态学术个人主页（EN/中文）</p>
-<p align="center">✨ A pure static personal academic homepage (EN/ZH)</p>
+<p align="center">✨ 纯静态个人学术主页（EN / 中文）</p>
+<p align="center">✨ A pure static personal academic homepage (EN / ZH)</p>
 
-[![Homepage Screenshot](https://cdn.jsdelivr.net/gh/gone1724/academic-sources@master/Screenshot/homepage_rounded.png)](https://academic-24s.pages.dev/)
+[![Homepage Screenshot](https://cdn.jsdelivr.net/gh/gone1724/academic-sources@master/Screenshot/homepage_rounded.png "web preview")](https://academic-24s.pages.dev/)
 
 ## 📋 概览 Overview
 
 - 🚀 纯静态站点，无构建流程与包管理器（HTML + CSS）。
-- 🌐 双语内容：英文（根目录）与中文（`zh/`）。
+- 🌐 双语内容：英文（/）与中文（`zh/`）。
 - ☁️ 云端托管：Cloudflare Pages（仓库：GitHub）。
 - 🎨 模块化 CSS 架构：`base → layout → components`。
 
