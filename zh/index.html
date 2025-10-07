@@ -83,7 +83,7 @@
           title="OSHWHUB"
           ><span class="badge"
             ><img src="/images/logo/oshwhub.svg" alt="OSHWHUB" /></span
-          ><span>OSHWHUB</span></a
+          ><span>立创开源</span></a
         >
         <a
           class="social-item c6"
@@ -98,8 +98,7 @@
         >
         <a
           class="social-item c2"
-          href="/images/QRcode/QRcode.webp"
-          target="_blank"
+          href="#lightbox-wechat"
           title="微信"
           ><span class="badge"
             ><img
@@ -107,6 +106,23 @@
               alt="WeChat" /></span
           ><span>微信</span></a
         >
+      </div>
+
+      <!-- WeChat QR Code Lightbox -->
+      <div
+        id="lightbox-wechat"
+        class="lightbox"
+        aria-modal="true"
+        role="dialog"
+      >
+        <div class="lightbox__content">
+          <img
+            class="lightbox__img"
+            src="/images/QRcode/QRcode.webp"
+            alt="微信二维码"
+          />
+          <a class="lightbox__close" href="#close" aria-label="关闭">×</a>
+        </div>
       </div>
 
       <div class="panel">
@@ -167,15 +183,14 @@
         <h2>荣誉奖项</h2>
         <ul class="list-container">
           <li class="list-item">
-            <a
-              href="/images/awards/3_50th-wuhan-river-crossing-festival.webp"
-              target="_blank"
-              ><img
+            <a href="#lightbox-award-2025" aria-label="查看获奖证书">
+              <img
                 src="/images/awards/3_50th-wuhan-river-crossing-festival-lite.webp"
                 alt="Award 2025"
                 class="list-image"
                 loading="lazy"
-            /></a>
+              />
+            </a>
             <div class="list-text">
               <strong>成功横渡长江</strong
               ><br />第50届武汉7·16横渡长江活动，2025.07
@@ -185,36 +200,83 @@
             <div class="list-text">山东大学荣誉学士学位，2024.06</div>
           </li>
           <li class="list-item">
-            <a
-              href="/images/awards/1_18th-national-smart-car-competition.webp"
-              target="_blank"
-              ><img
+            <a href="#lightbox-award-2023" aria-label="查看获奖证书">
+              <img
                 src="/images/awards/1_18th-national-smart-car-competition-lite.webp"
                 alt="Award 2023"
                 class="list-image"
                 loading="lazy"
-            /></a>
+              />
+            </a>
             <div class="list-text">
               <strong>全国一等奖</strong
               ><br />第18届全国大学生智能汽车竞赛，2023.08
             </div>
           </li>
           <li class="list-item">
-            <a
-              href="/images/awards/2_17th-national-smart-car-competition-shandong.webp"
-              target="_blank"
-              ><img
+            <a href="#lightbox-award-2022" aria-label="查看获奖证书">
+              <img
                 src="/images/awards/2_17th-national-smart-car-competition-shandong-lite.webp"
                 alt="Award 2022"
                 class="list-image"
                 loading="lazy"
-            /></a>
+              />
+            </a>
             <div class="list-text">
               <strong>省级一等奖</strong
               ><br />第17届全国大学生智能汽车竞赛，2022.07
             </div>
           </li>
         </ul>
+      </div>
+
+      <!-- Awards Lightbox modals -->
+      <div
+        id="lightbox-award-2025"
+        class="lightbox"
+        aria-modal="true"
+        role="dialog"
+      >
+        <div class="lightbox__content">
+          <img
+            class="lightbox__img"
+            src="/images/awards/3_50th-wuhan-river-crossing-festival.webp"
+            alt="第50届武汉7·16横渡长江活动"
+          />
+          <a class="lightbox__close" href="#close" aria-label="关闭">×</a>
+        </div>
+      </div>
+
+      <div
+        id="lightbox-award-2023"
+        class="lightbox"
+        aria-modal="true"
+        role="dialog"
+      >
+        <div class="lightbox__content">
+          <img
+            class="lightbox__img"
+            src="/images/awards/1_18th-national-smart-car-competition.webp"
+            alt="第18届全国大学生智能汽车竞赛"
+          />
+          <a class="lightbox__close" href="#close" aria-label="关闭">×</a>
+        </div>
+      </div>
+
+      <div
+        id="lightbox-award-2022"
+        class="lightbox"
+        aria-modal="true"
+        role="dialog"
+      >
+        <div class="lightbox__content">
+          <img
+            class="lightbox__img"
+            src="/images/awards/2_17th-national-smart-car-competition-shandong.webp"
+            alt="第17届全国大学生智能汽车竞赛"
+          />
+          <a class="lightbox__close" href="#close" aria-label="关闭">×</a>
+        </div>
       </div>
     </div>
     <footer class="copyright">

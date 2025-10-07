@@ -110,8 +110,7 @@
         </a>
         <a
           class="social-item c2"
-          href="/images/QRcode/QRcode.webp"
-          target="_blank"
+          href="#lightbox-wechat"
           title="WeChat"
         >
           <span class="badge"
@@ -119,6 +118,23 @@
           /></span>
           <span>WeChat</span>
         </a>
+      </div>
+
+      <!-- WeChat QR Code Lightbox -->
+      <div
+        id="lightbox-wechat"
+        class="lightbox"
+        aria-modal="true"
+        role="dialog"
+      >
+        <div class="lightbox__content">
+          <img
+            class="lightbox__img"
+            src="/images/QRcode/QRcode.webp"
+            alt="WeChat QR Code"
+          />
+          <a class="lightbox__close" href="#close" aria-label="Close">×</a>
+        </div>
       </div>
 
       <div class="panel">
@@ -182,10 +198,7 @@
         <h2>Achievements</h2>
         <ul class="list-container">
           <li class="list-item">
-            <a
-              href="images/awards/3_50th-wuhan-river-crossing-festival.webp"
-              target="_blank"
-            >
+            <a href="#lightbox-award-2025" aria-label="View award image">
               <img
                 src="images/awards/3_50th-wuhan-river-crossing-festival-lite.webp"
                 alt="Award 2025"
@@ -204,10 +217,7 @@
             </div>
           </li>
           <li class="list-item">
-            <a
-              href="images/awards/1_18th-national-smart-car-competition.webp"
-              target="_blank"
-            >
+            <a href="#lightbox-award-2023" aria-label="View award image">
               <img
                 src="images/awards/1_18th-national-smart-car-competition-lite.webp"
                 alt="Award 2023"
@@ -221,10 +231,7 @@
             </div>
           </li>
           <li class="list-item">
-            <a
-              href="images/awards/2_17th-national-smart-car-competition-shandong.webp"
-              target="_blank"
-            >
+            <a href="#lightbox-award-2022" aria-label="View award image">
               <img
                 src="images/awards/2_17th-national-smart-car-competition-shandong-lite.webp"
                 alt="Award 2022"
@@ -239,7 +246,57 @@
           </li>
         </ul>
       </div>
+
+      <!-- Awards Lightbox modals -->
+      <div
+        id="lightbox-award-2025"
+        class="lightbox"
+        aria-modal="true"
+        role="dialog"
+      >
+        <div class="lightbox__content">
+          <img
+            class="lightbox__img"
+            src="images/awards/3_50th-wuhan-river-crossing-festival.webp"
+            alt="The 50th Wuhan July 16 Yangtze River Crossing Festival"
+          />
+          <a class="lightbox__close" href="#close" aria-label="Close">×</a>
+        </div>
+      </div>
+
+      <div
+        id="lightbox-award-2023"
+        class="lightbox"
+        aria-modal="true"
+        role="dialog"
+      >
+        <div class="lightbox__content">
+          <img
+            class="lightbox__img"
+            src="images/awards/1_18th-national-smart-car-competition.webp"
+            alt="The 18th National Undergraduate Smart Car Race"
+          />
+          <a class="lightbox__close" href="#close" aria-label="Close">×</a>
+        </div>
+      </div>
+
+      <div
+        id="lightbox-award-2022"
+        class="lightbox"
+        aria-modal="true"
+        role="dialog"
+      >
+        <div class="lightbox__content">
+          <img
+            class="lightbox__img"
+            src="images/awards/2_17th-national-smart-car-competition-shandong.webp"
+            alt="The 17th National Undergraduate Smart Car Race"
+          />
+          <a class="lightbox__close" href="#close" aria-label="Close">×</a>
+        </div>
+      </div>
     </div>
+
     <footer class="copyright">
       <p>
         <span>All rights reserved 2025</span>

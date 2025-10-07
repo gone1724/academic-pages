@@ -66,7 +66,7 @@
 .social-item[href*="github.com"] { order: 3; }
 .social-item.oshwhub { order: 4; }
 .social-item[href*="bilibili.com"] { order: 5; }
-.social-item[href*="/images/QRcode"] { order: 6; }
+.social-item[href*="QRcode"], .social-item[href="#lightbox-wechat"] { order: 6; }
 /* Hide legacy Contact section (header + rows) */
 h2:has(+ .contact-row) { display: none !important; }
 .contact-row { display: none !important; }

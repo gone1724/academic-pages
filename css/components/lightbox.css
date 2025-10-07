@@ -1,0 +1,96 @@
+/* Lightbox 图片放大效果 */
+:root {
+  --overlay-bg: rgba(0, 0, 0, 0.65);
+  --btn-size: 56px;
+  --btn-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --radius: 999px;
+}
+
+/* Lightbox（:target 技术） */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  display: none; /* 默认隐藏 */
+  align-items: center;
+  justify-content: center;
+  padding: 5vh 5vw; /* 边距留白 */
+  z-index: 9999;
+  backdrop-filter: blur(2px); /* 轻微虚化背景 */
+}
+
+/* 当被锚点命中（打开）时显示 */
+.lightbox:target {
+  display: flex;
+}
+
+/* 内容盒，限制为 80% 视口 */
+.lightbox__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: 80vw;
+  max-height: 80vh;
+  animation: zoomIn 0.18s ease-out;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.985);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.lightbox__img {
+  max-width: 80vw;
+  max-height: 70vh; /* 预留按钮空间 */
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.35);
+  background: #000; /* 透明边缘更好看 */
+}
+
+/* 圆形"×"关闭按钮：位于图片下方中间、悬浮感 */
+.lightbox__close {
+  display: inline-grid;
+  place-items: center;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  border-radius: var(--radius);
+  text-decoration: none !important;
+  font-size: 28px;
+  line-height: 1;
+  color: #fff; /* 仅图标色 */
+  background: rgba(0, 0, 0, 0.55); /* 半透明悬浮圆 */
+  box-shadow: var(--btn-shadow);
+  backdrop-filter: blur(2px);
+  transition: transform 0.15s ease, background 0.15s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.lightbox__close:hover {
+  transform: translateY(-1px) scale(1.03);
+  background: rgba(0, 0, 0, 0.68);
+  text-decoration: none !important;
+}
+
+/* 缩略图点击效果 */
+.list-item a {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.list-item a img {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.list-item a:hover img {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
