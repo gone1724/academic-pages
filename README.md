@@ -11,6 +11,7 @@
 - 🌐 双语内容：英文（/）与中文（`zh/`）。
 - ☁️ 云端托管：Cloudflare Pages（仓库：GitHub）。
 - 🎨 模块化 CSS 架构：`base → layout → components`。
+- 🔒 安全性：纯 HTML 实现，不依赖 JavaScript，保证隐私。
 
 ## 📂 目录结构 Project Structure
 
