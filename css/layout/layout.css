@@ -1,42 +1,37 @@
-/* Layout styles */
+/* Layout */
 .container {
   max-width: 980px;
   width: 100%;
-  /* No forced min-height: let content define height */
   margin: 0 auto;
-  /* Let panels float on the page background so the page
-     doesn’t look like a big frameless rectangle */
-  background: transparent;
   padding: var(--container-padding);
-  padding-bottom: 0.2rem; /* tighten gap above footer */
-  border-radius: 0;
-  /* Remove outer frame while keeping layout intact */
+  padding-bottom: 0.2rem;
+  background: transparent;
   border: none;
+  border-radius: 0;
   box-shadow: none;
   position: relative;
   box-sizing: border-box;
 }
 
-/* Responsive styles */
 @media (max-width: 600px) {
   body {
     padding: 0;
   }
-  
+
   .container {
+    max-width: 100%;
     padding: 1em;
-    padding-bottom: 0.2rem; /* tighter gap on mobile */
+    padding-bottom: 0.2rem;
+    background: transparent;
+    border: none;
     border-radius: 0;
     box-shadow: none;
-    border: none;
-    max-width: 100%;
-    /* No forced min-height on mobile */
   }
-  
+
   .highlight {
     font-size: 1.4em;
   }
-  
+
   h1 {
     font-size: 1.5em;
     margin: 0.3em 0;
@@ -44,15 +39,15 @@
 
   h2 {
     font-size: 1em;
-    margin: 0.8em 0 0.4em 0;
+    margin: 0.8em 0 0.4em;
   }
-  
+
   ul {
     padding-left: 1.2em;
     font-size: 1em;
   }
-  
+
   .section-divider {
     margin: 12px auto;
   }
-} 
+}

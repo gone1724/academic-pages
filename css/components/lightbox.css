@@ -1,37 +1,26 @@
-/* Lightbox 图片放大效果 */
-:root {
-  --overlay-bg: rgba(0, 0, 0, 0.65);
-  --btn-size: 56px;
-  --btn-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-  --radius: 999px;
-}
-
-/* 隐藏 checkbox */
+/* Lightbox */
 .lightbox__trigger {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
 
-/* Lightbox（checkbox 技术） */
 .lightbox {
   position: fixed;
   inset: 0;
-  background: var(--overlay-bg);
-  display: none; /* 默认隐藏 */
+  display: none;
   align-items: center;
   justify-content: center;
-  padding: 5vh 5vw; /* 边距留白 */
+  padding: 5vh 5vw;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(2px);
   z-index: 9999;
-  backdrop-filter: blur(2px); /* 轻微虚化背景 */
 }
 
-/* 当 checkbox 被选中时显示 */
 .lightbox__trigger:checked + .lightbox {
   display: flex;
 }
 
-/* 内容盒，限制为 80% 视口 */
 .lightbox__content {
   display: flex;
   flex-direction: column;
@@ -47,6 +36,7 @@
     transform: scale(0.985);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -55,30 +45,29 @@
 
 .lightbox__img {
   max-width: 80vw;
-  max-height: 70vh; /* 预留按钮空间 */
+  max-height: 70vh;
   object-fit: contain;
   border-radius: 14px;
   box-shadow: 0 10px 36px rgba(0, 0, 0, 0.35);
-  background: #000; /* 透明边缘更好看 */
+  background: #000000;
 }
 
-/* 圆形"×"关闭按钮：位于图片下方中间、悬浮感 */
 .lightbox__close {
   display: inline-grid;
   place-items: center;
-  width: var(--btn-size);
-  height: var(--btn-size);
-  border-radius: var(--radius);
-  text-decoration: none !important;
+  width: var(--lightbox-button-size);
+  height: var(--lightbox-button-size);
   font-size: 28px;
   line-height: 1;
-  color: #fff; /* 仅图标色 */
-  background: rgba(0, 0, 0, 0.55); /* 半透明悬浮圆 */
-  box-shadow: var(--btn-shadow);
-  backdrop-filter: blur(2px);
-  transition: transform 0.15s ease, background 0.15s ease;
-  user-select: none;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: var(--lightbox-button-radius);
+  box-shadow: var(--lightbox-button-shadow);
+  text-decoration: none !important;
   cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s ease, background 0.15s ease;
+  backdrop-filter: blur(2px);
 }
 
 .lightbox__close:hover {
@@ -87,7 +76,6 @@
   text-decoration: none !important;
 }
 
-/* 缩略图点击效果 */
 .list-item a,
 .list-item label {
   display: inline-block;

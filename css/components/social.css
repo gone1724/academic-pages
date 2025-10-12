@@ -1,0 +1,139 @@
+/* Social links */
+.social-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 16px;
+}
+
+.social-item {
+  order: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  color: #111111;
+  background: #ffffff;
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 2px 2px 0px #000000;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.social-item:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #000000;
+  text-decoration: none;
+}
+
+.social-item:active {
+  transform: translate(0, 0);
+  box-shadow: 1px 1px 0px #000000;
+}
+
+.social-item img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.social-item span {
+  font-size: 0.95em;
+  font-weight: 600;
+}
+
+.social-item.email {
+  order: 1;
+}
+
+.social-item.orcid {
+  order: 2;
+}
+
+.social-item[href*="github.com"] {
+  order: 3;
+}
+
+.social-item.oshwhub {
+  order: 4;
+}
+
+.social-item[href*="bilibili.com"] {
+  order: 5;
+}
+
+.social-item[href*="QRcode"],
+.social-item[for="lightbox-wechat"] {
+  order: 6;
+}
+
+/* Hide legacy contact list */
+h2:has(+ .contact-row) {
+  display: none !important;
+}
+
+.contact-row {
+  display: none !important;
+}
+
+/* Icon badges */
+.social-item .badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--blue);
+}
+
+.social-item.c1 .badge {
+  background: var(--blue);
+}
+
+.social-item.c2 .badge {
+  background: var(--green);
+}
+
+.social-item.c3 .badge {
+  background: var(--purple);
+}
+
+.social-item.c4 .badge {
+  background: var(--yellow);
+}
+
+.social-item.c5 .badge {
+  background: var(--orange);
+}
+
+.social-item.c6 .badge {
+  background: var(--pink);
+}
+
+.social-item.email .badge {
+  background: #d1c0f1;
+}
+
+.social-item.orcid .badge {
+  background: #c9e67b;
+}
+
+.social-item.oshwhub .badge {
+  background: #9cb9ec;
+}
+
+.social-item.lavender .badge {
+  background: #aa96da;
+}
+
+.social-item.sunset .badge {
+  background: #ffaa64;
+}
+
+.social-item.rose .badge {
+  background: #c06c84;
+}

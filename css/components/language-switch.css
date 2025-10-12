@@ -1,4 +1,4 @@
-/* Language Switch styles */
+/* Language switch */
 .language-switch {
   position: absolute;
   top: 20px;
@@ -7,17 +7,24 @@
 }
 
 .language-switch a {
-  text-decoration: none;
-  color: #111;
+  margin-left: 5px;
   padding: 8px 14px;
+  font-weight: 400;
+  color: #111111;
+  background-color: #f7f1f0;
   border: 2px solid var(--border-color);
   border-radius: 16px;
-  margin-left: 5px;
-  background-color: #f7f1f0;
-  box-shadow: 2px 2px 0px #000000; /* hard edge shadow */
+  box-shadow: 2px 2px 0px #000000;
+  text-decoration: none;
   transition: transform 160ms ease, box-shadow 160ms ease;
-  font-weight: 400; /* no bold */
 }
 
-.language-switch a:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0px #000000; }
-.language-switch a:active { transform: translate(0,0); box-shadow: 1px 1px 0px #000000; }
+.language-switch a:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #000000;
+}
+
+.language-switch a:active {
+  transform: translate(0, 0);
+  box-shadow: 1px 1px 0px #000000;
+}

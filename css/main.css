@@ -1,11 +1,12 @@
-@import 'base/base.css';
+@import 'base/base.css'; /* 基础变量、字体与全局重置 */
 
-@import 'components/components.css';
-@import 'components/contact.css';
-@import 'components/language-switch.css';
-@import 'components/list.css';
-@import 'components/dashboard.css';
-@import 'components/lightbox.css';
+@import 'components/profile.css'; /* 头像与个人简介排版 */
+@import 'components/tags.css'; /* 研究方向标签容器 */
+@import 'components/panels.css'; /* 面板框架与区块包裹 */
+@import 'components/list.css'; /* 列表内容及面板内列表 */
+@import 'components/social.css'; /* 社交链接与图标徽章 */
+@import 'components/language-switch.css'; /* 语言切换按钮 */
+@import 'components/lightbox.css'; /* 图片灯箱交互 */
 
-@import 'layout/footer.css';
-@import 'layout/layout.css';
+@import 'layout/layout.css'; /* 页面主体布局容器 */
+@import 'layout/footer.css'; /* 页脚排版与响应式 */

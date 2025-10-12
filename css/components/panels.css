@@ -1,0 +1,30 @@
+/* Panels */
+.panel {
+  margin: 16px 0 24px;
+  padding: 6px 18px;
+  background: #ffffff;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.container > .panel:last-of-type {
+  margin-bottom: 0.2rem;
+}
+
+.panel .panel {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.container > h2 + ul,
+.container > h2 + ul.list-container {
+  margin: 12px 0 22px;
+  padding: 16px 18px;
+  background: #ffffff;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--soft-shadow);
+}
