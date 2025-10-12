@@ -23,8 +23,8 @@ academic-pages/
 │   │   ├── layout.css      # Grid, container, spacing
 │   │   └── footer.css      # Footer-specific styles
 │   ├── components/
-│   │   ├── components.css  # Component module aggregator (includes tag container)
-│   │   ├── dashboard.css   # Dashboard section styles
+│   │   ├── components.css  # Component module aggregator (includes tag container, responsive avatar)
+│   │   ├── dashboard.css   # Main dashboard styles (avatar, panels, social badges, lists)
 │   │   ├── language-switch.css
 │   │   ├── contact.css
 │   │   ├── list.css
@@ -59,6 +59,10 @@ academic-pages/
   - Layout styles → `css/layout/layout.css`
   - Component styles → `css/components/components.css`
 - Main CSS entry is `css/main.css` (imported by both HTML files)
+- **CSS Cascade Priority**:
+  - `dashboard.css` loads AFTER `components.css` and contains the primary styles for: avatar, panels, social badges, action buttons, pills
+  - `components.css` contains: responsive overrides for avatar, tag containers, summary cards
+  - **IMPORTANT**: When modifying shared components (avatar, panel, btn, pill), edit `dashboard.css` first; only add responsive or specialized overrides to `components.css`
 
 ## Testing Instructions
 
@@ -131,10 +135,15 @@ refactor: 重构CSS模块化结构
 
 ### Modifying Styles
 1. Identify correct CSS module (base/layout/components)
-2. Make changes in that module only
-3. Avoid duplicating styles across files
-4. Test cascade effects on both language pages
-5. Check mobile responsiveness
+2. For shared components (avatar, panel, btn, pill, social-item):
+   - Primary styles → `css/components/dashboard.css`
+   - Responsive/mobile overrides → `css/components/components.css`
+3. **CRITICAL**: Check for duplicate definitions across files before adding new styles
+   - Use grep/search to find existing definitions: `.avatar`, `.panel`, `.btn`, etc.
+   - Remove or consolidate duplicates to avoid cascade conflicts
+4. Make changes in the appropriate module only
+5. Test cascade effects on both language pages
+6. Check mobile responsiveness at breakpoints: 400px, 600px, 1024px
 
 ### Adding Images
 1. Place in appropriate `images/` subdirectory

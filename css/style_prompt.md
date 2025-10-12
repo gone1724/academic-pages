@@ -19,7 +19,20 @@ This document describes the styling rules used in this repo so an AI agent can q
 
 ## 3. Components
 
-### 3.1 Social Badges (contact shortcuts)
+### 3.1 Avatar
+- Size: 132px width
+- Border: 3px solid white (`#fff`)
+- Border-radius: 20px (rounded rectangle)
+- Shadow: multi-layer for 3D floating effect
+  - Outer shadow: `0 6px 12px rgba(0, 0, 0, 0.08)`
+  - White glow: `0 0 10px rgba(255, 255, 255, 0.6)`
+  - Inner highlight: `inset 0 1px 2px rgba(255, 255, 255, 0.4)`
+- Hover effect: lifts up 4px (`translateY(-4px)`) with enhanced shadow
+- Transition: smooth 0.3s ease for transform and box-shadow
+- Positioning: `display: block; margin: 0 auto 1em auto`
+- Image fit: `object-fit: cover` to ensure proper cropping
+
+### 3.2 Social Badges (contact shortcuts)
 - Markup: `.social-row` contains multiple `.social-item` links.
 - Structure: `a.social-item > span.badge > img + span(label)`
 - Styles:
@@ -34,17 +47,17 @@ This document describes the styling rules used in this repo so an AI agent can q
   - OSHWHUB `.oshwhub`: `#6e9df1`
   - Others may use repo variables (`--blue`, `--green`, `--pink`, `--yellow`).
 
-### 3.2 Language Switch
+### 3.3 Language Switch
 - `.language-switch` positioned absolutely at top-right corner (`position: absolute; top: 20px; right: 20px`).
 - `.language-switch a` is a colored pill with hard-edge shadow.
 - Background: `#f7f1f0`; border: 2px solid black; radius: 16px; same hover/active shadow pattern as social badges.
 
-### 3.3 Panels, Lists and Media
+### 3.4 Panels, Lists and Media
 - Section card `.panel`: white background, 2px black border, hard-edge shadow.
 - List item `.panel .list-item`: 1px black border, rounded 16px, inner spacing 10px.
 - Thumbnail `.panel .list-image`: width ≈56px, 1px `rgba(0,0,0,.25)` border, 8px radius, subtle shadow.
 
-### 3.4 Tag Container
+### 3.5 Tag Container
 - `.tag-container`: flexible container for displaying tags/keywords in pill format.
 - Structure: `div.tag-container > span` (each span is a tag)
 - Styles:
