@@ -4,10 +4,10 @@
 /* Avatar */
 .avatar {
   width: 132px;
-  border-radius: 50%;
+  border-radius: 18px;
   display: block;
   margin: 0 auto 1em auto;
-  border: 2px solid var(--border-color);
+  border: 1px solid #999;
   box-shadow: var(--soft-shadow);
 }
 
