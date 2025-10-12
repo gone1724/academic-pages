@@ -48,8 +48,15 @@
 .btn.pink { background: var(--pink); }
 .btn.yellow { background: var(--yellow); }
 
-/* Avatar tweaks */
-.avatar { border: 1.5px solid #000000; box-shadow: var(--soft-shadow); width: 132px; border-radius: 18px; }
+/* Avatar */
+.avatar {
+  width: 132px;
+  border-radius: 18px;
+  display: block;
+  margin: 0 auto 1em auto;
+  border: 1px solid #999;
+  box-shadow: var(--soft-shadow);
+}
 
 /* Social links row */
 .social-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 10px 0 16px 0; }

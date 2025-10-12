@@ -1,16 +1,7 @@
 /* Component styles */
 
 /* ===== Profile Section ===== */
-/* Avatar */
-.avatar {
-  width: 132px;
-  border-radius: 18px;
-  display: block;
-  margin: 0 auto 1em auto;
-  border: 1px solid #999;
-  box-shadow: var(--soft-shadow);
-}
-
+/* Avatar - 主要样式在 dashboard.css */
 @media (max-width: 600px) {
   .avatar {
     width: 140px;
@@ -51,15 +42,7 @@
   font-weight: normal;
 }
 
-/* Panel base */
-.panel {
-  background: #fff;
-  border: 2px solid var(--border-color);
-  border-radius: var(--border-radius);
-  box-shadow: var(--soft-shadow);
-  padding: 16px 18px;
-  margin: 16px 0 24px 0;
-}
+/* Panel base - 主要样式在 dashboard.css */
 
 /* Summary cards */
 .summary-grid {
@@ -86,57 +69,9 @@
   font-weight: 700;
 }
 
-/* Pills (for possible future filters) */
-.pills {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 10px 0 6px 0;
-}
-.pill {
-  background: #fff;
-  border: 2px solid var(--border-color);
-  border-radius: 999px;
-  padding: 8px 14px;
-  box-shadow: var(--soft-shadow);
-}
+/* Pills - 主要样式在 dashboard.css */
 
-/* Action bar */
-.action-bar {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 6px;
-  flex-wrap: wrap;
-}
-.btn {
-  border: 2px solid var(--border-color);
-  border-radius: 18px;
-  padding: 10px 18px;
-  color: #111;
-  background: #fff;
-  text-decoration: none;
-  box-shadow: var(--soft-shadow);
-  transition: transform 200ms ease;
-  font-weight: 600;
-}
-.btn:hover {
-  transform: translateY(-2px);
-  text-decoration: none;
-}
-.btn.blue {
-  background: var(--blue);
-}
-.btn.green {
-  background: var(--green);
-}
-.btn.pink {
-  background: var(--pink);
-}
-.btn.yellow {
-  background: var(--yellow);
-}
+/* Action bar & buttons - 主要样式在 dashboard.css */
 
 /* Tag container */
 .tag-container {
