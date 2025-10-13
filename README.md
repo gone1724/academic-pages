@@ -17,29 +17,30 @@
 
 ```
 academic-pages/
-├── index.html              # English homepage
+├── index.html                  # English homepage
 ├── zh/
-│   └── index.html          # Chinese homepage
+│   └── index.html              # Chinese homepage
 ├── css/
-│   ├── main.css            # Entry point importing all modules
+│   ├── main.css                # Imports all CSS modules
 │   ├── base/
-│   │   └── base.css        # Variables, resets, typography
+│   │   └── base.css            # Variables, resets, typography
 │   ├── layout/
-│   │   ├── layout.css      # Grid, container, spacing
-│   │   └── footer.css      # Footer-specific styles
+│   │   ├── layout.css          # Page container & responsive spacing
+│   │   └── footer.css          # Footer layout & breakpoints
 │   ├── components/
-│   │   ├── components.css  # Component module aggregator
-│   │   ├── dashboard.css   # Dashboard section styles
-│   │   ├── language-switch.css
-│   │   ├── contact.css
-│   │   └── list.css
-│   └── style_prompt.md     # UI spec for AI agents
-├── images/                 # Avatar, awards, logos, QR codes
+│   │   ├── profile.css         # Avatar, title, intro text
+│   │   ├── tags.css            # Research-interest tags
+│   │   ├── panels.css          # Card wrapper styles
+│   │   ├── list.css            # List patterns + panel overrides
+│   │   ├── social.css          # Social/contact badges
+│   │   ├── language-switch.css # Language toggle button
+│   │   └── lightbox.css        # Pure CSS lightbox
+│   └── style_prompt.md         # UI spec for AI agents
+├── images/                     # Avatar, awards, logos, QR codes
 ├── sitemap.xml
 ├── robots.txt
-└── google46a1fac61800863f.html  # Google site verification
+└── google46a1fac61800863f.html # Google site verification
 ```
-
 ## 🚀 部署 Deployment
 
 分支：`master` 自动部署；根目录：`/`；无需构建命令。
