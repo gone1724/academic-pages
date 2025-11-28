@@ -16,6 +16,9 @@
       --accent-2: #0888f1;
       --block: #ffffff;
       --shadow: 8px 8px 0 #0f0f0f;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 10px;
     }
     * { box-sizing: border-box; }
     body {
@@ -68,6 +71,7 @@
       background: var(--accent);
       box-shadow: 6px 6px 0 var(--ink);
       text-transform: uppercase;
+      border-radius: var(--radius-md);
     }
     .tagline {
       font-size: clamp(16px, 2vw, 20px);
@@ -77,6 +81,7 @@
       padding: 8px 12px;
       background: #e8e4d9;
       border: 2px solid var(--ink);
+      border-radius: var(--radius-sm);
     }
     .links {
       display: grid;
@@ -90,7 +95,7 @@
       background: #fffaf4;
       box-shadow: 6px 6px 0 var(--ink);
       transition: transform 120ms ease, box-shadow 120ms ease;
-      border-radius: 16px;
+      border-radius: var(--radius-lg);
     }
     .card::after {
       content: "";
@@ -99,7 +104,7 @@
       border: 1px dashed var(--ink);
       opacity: 0.16;
       pointer-events: none;
-      border-radius: 12px;
+      border-radius: var(--radius-md);
     }
     .card:hover {
       transform: translate(-4px, -4px);
@@ -117,6 +122,7 @@
       background: var(--ink);
       color: #fff;
       border: 2px solid var(--ink);
+      border-radius: var(--radius-sm);
     }
     .label span {
       display: inline-block;
@@ -147,6 +153,7 @@
       text-decoration: none;
       font-weight: 700;
       letter-spacing: 0.04em;
+      border-radius: var(--radius-md);
       box-shadow: 4px 4px 0 var(--ink);
       transition: transform 120ms ease, box-shadow 120ms ease;
     }
