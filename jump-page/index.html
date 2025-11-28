@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SixHz 跳转页</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://academic.sixhz.top/images/favicon/favicon.ico" type="image/x-icon">
+  <style>
+    :root {
+      --bg: #f4f1e6;
+      --ink: #0f0f0f;
+      --accent:rgb(240, 117, 73);
+      --accent-2: #0888f1;
+      --block: #ffffff;
+      --shadow: 8px 8px 0 #0f0f0f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 111, 60, 0.18), transparent 40%),
+                  radial-gradient(circle at 78% 26%, rgba(246, 180, 0, 0.16), transparent 45%),
+                  linear-gradient(135deg, #f7f5ed 0%, #efe9dc 100%);
+      color: var(--ink);
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      display: grid;
+      place-items: center;
+      padding: 48px 24px;
+    }
+    main {
+      width: min(960px, 100%);
+      background: var(--block);
+      border: 4px solid var(--ink);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+    .noise {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+    header, section {
+      position: relative;
+      padding: 32px 40px;
+      z-index: 1;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 4px solid var(--ink);
+      background: repeating-linear-gradient(45deg, rgba(0,0,0,0.04), rgba(0,0,0,0.04) 12px, transparent 12px, transparent 24px);
+    }
+    .logo {
+      font-weight: 700;
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: 0.02em;
+      padding: 6px 12px;
+      border: 3px solid var(--ink);
+      background: var(--accent);
+      box-shadow: 6px 6px 0 var(--ink);
+      text-transform: uppercase;
+    }
+    .tagline {
+      font-size: clamp(16px, 2vw, 20px);
+      margin: 0;
+      font-weight: 600;
+      color: var(--ink);
+      padding: 8px 12px;
+      background: #e8e4d9;
+      border: 2px solid var(--ink);
+    }
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      position: relative;
+      padding: 20px 20px 18px;
+      border: 3px solid var(--ink);
+      background: #fffaf4;
+      box-shadow: 6px 6px 0 var(--ink);
+      transition: transform 120ms ease, box-shadow 120ms ease;
+      border-radius: 16px;
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px dashed var(--ink);
+      opacity: 0.16;
+      pointer-events: none;
+      border-radius: 12px;
+    }
+    .card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: #fff;
+      border: 2px solid var(--ink);
+    }
+    .label span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: var(--accent-2);
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ink);
+    }
+    .title {
+      font-size: clamp(22px, 3vw, 28px);
+      margin: 0 0 10px;
+    }
+    .desc {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.5;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 10px 14px;
+      border: 3px solid var(--ink);
+      background: var(--accent-2);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 4px 4px 0 var(--ink);
+      transition: transform 120ms ease, box-shadow 120ms ease;
+    }
+    .cta:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    footer {
+      padding: 18px 40px 28px;
+      border-top: 4px solid var(--ink);
+      background: #f4f1e6;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    @media (max-width: 600px) {
+      header { padding: 24px; }
+      section { padding: 24px; }
+      footer { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
+      .logo { box-shadow: 4px 4px 0 var(--ink); }
+      .card { box-shadow: 4px 4px 0 var(--ink); }
+      .cta { width: 100%; justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="noise" aria-hidden="true"></div>
+    <header>
+      <div class="logo">SixHz</div>
+      <p class="tagline">敲击方块，直达目标</p>
+    </header>
+
+    <section aria-label="links">
+      <div class="links">
+        <article class="card">
+          <div class="label"><span aria-hidden="true"></span> 博客</div>
+          <h2 class="title">Blog · 思考与记录</h2>
+          <p class="desc">技术、随笔、构想在这里留下痕迹。保持更新，保持锋利。</p>
+          <a class="cta" href="https://blog.sixhz.top" target="_blank" rel="noopener noreferrer">进入博客 →</a>
+        </article>
+
+        <article class="card">
+          <div class="label"><span aria-hidden="true"></span> 学术主页</div>
+          <h2 class="title">Academic · 研究与成果</h2>
+          <p class="desc">论文、项目与学术轨迹，收敛于此。关注深度与扎实积累。</p>
+          <a class="cta" href="https://academic.sixhz.top" target="_blank" rel="noopener noreferrer">打开学术主页 →</a>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <div>◎ 点击直达 · No ads · No distractions</div>
+      <div>made for sixhz.top</div>
+    </footer>
+  </main>
+</body>
+</html>
