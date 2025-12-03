@@ -172,6 +172,20 @@
       align-items: center;
       gap: 12px;
     }
+    .footer-note {
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-text { display: inline; }
+    .footer-made { margin: 0; }
+    .footer-mobile-note {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+    }
     @media (max-width: 600px) {
       body { padding: 20px 14px; }
       header { padding: 18px; }
@@ -184,6 +198,9 @@
       .desc { font-size: 14px; line-height: 1.45; }
       .cta { width: 100%; justify-content: center; text-align: center; padding: 10px 12px; }
       .links { gap: 12px; }
+      .footer-note,
+      .footer-made { display: none; }
+      .footer-mobile-note { display: inline-flex; }
     }
   </style>
 </head>
@@ -214,8 +231,9 @@
     </section>
 
     <footer>
-      <div>◎ 点击直达 · No ads · No distractions</div>
-      <div>made for sixhz.top</div>
+      <div class="footer-note"><span class="footer-glyph" aria-hidden="true">◎</span><span class="footer-text">点击直达 · No ads · No distractions</span></div>
+      <div class="footer-made">made for sixhz.top</div>
+      <div class="footer-mobile-note"><span aria-hidden="true">◎</span><span>made for sixhz.top</span></div>
     </footer>
   </main>
 </body>
