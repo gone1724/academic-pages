@@ -17,30 +17,37 @@
 
 ```
 academic-pages/
-├── index.html                  # English homepage
+├── index.html                       # English homepage
+├── redirect/
+│   ├── index.html                   # Root-domain redirect page
+│   └── 用作根域名跳转页               # Marker for redirect usage
 ├── zh/
-│   └── index.html              # Chinese homepage
+│   └── index.html                   # Chinese homepage
 ├── css/
-│   ├── main.css                # Imports all CSS modules
+│   ├── main.css                     # Imports all CSS modules
 │   ├── base/
-│   │   └── base.css            # Variables, resets, typography
+│   │   └── base.css                 # Variables, resets, typography
 │   ├── layout/
-│   │   ├── layout.css          # Page container & responsive spacing
-│   │   └── footer.css          # Footer layout & breakpoints
+│   │   ├── layout.css               # Page container & responsive spacing
+│   │   └── footer.css               # Footer layout & breakpoints
 │   ├── components/
-│   │   ├── profile.css         # Avatar, title, intro text
-│   │   ├── tags.css            # Research-interest tags
-│   │   ├── panels.css          # Card wrapper styles
-│   │   ├── list.css            # List patterns + panel overrides
-│   │   ├── social.css          # Social/contact badges
-│   │   ├── language-switch.css # Language toggle button
-│   │   └── lightbox.css        # Pure CSS lightbox
-│   └── style_prompt.md         # UI spec for AI agents
-├── images/                     # Avatar, awards, logos, QR codes
+│   │   ├── profile.css              # Avatar, title, intro text
+│   │   ├── tags.css                 # Research-interest tags
+│   │   ├── panels.css               # Card wrapper styles
+│   │   ├── list.css                 # List patterns + panel overrides
+│   │   ├── social.css               # Social/contact badges
+│   │   ├── language-switch.css      # Language toggle button
+│   │   └── lightbox.css             # Pure CSS lightbox
+│   └── style_prompt.md              # UI spec for AI agents
+├── images/                          # Avatar, awards, logos, QR codes
+├── AGENTS.md                        # Agent guidelines for coding agents
+├── README.md                        # Project overview
 ├── sitemap.xml
 ├── robots.txt
-└── google46a1fac61800863f.html # Google site verification
+├── LICENSE
+└── .gitignore
 ```
+
 ## 🚀 部署 Deployment
 
 分支：`master` 自动部署；根目录：`/`；无需构建命令。
