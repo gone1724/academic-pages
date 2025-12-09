@@ -157,6 +157,15 @@
       box-shadow: 4px 4px 0 var(--ink);
       transition: transform 120ms ease, box-shadow 120ms ease;
     }
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .cta-group .cta {
+      margin-top: 0;
+    }
     .cta:hover {
       transform: translate(-2px, -2px);
       box-shadow: 6px 6px 0 var(--ink);
@@ -196,14 +205,19 @@
           <div class="label"><span aria-hidden="true"></span> 博客</div>
           <h2 class="title">Blog · 思考与记录</h2>
           <p class="desc">技术、随笔、构想在这里留下痕迹。保持更新，保持锋利。</p>
-          <a class="cta" href="https://blog.sixhz.top" target="_blank" rel="noopener noreferrer">进入博客 →</a>
+          <div class="cta-group">
+            <a class="cta" href="https://blog.sixhz.top" target="_blank" rel="noopener noreferrer">进入博客 →</a>
+            <a class="cta" href="https://sixhz.pages.dev/" target="_blank" rel="noopener noreferrer">静态备份 →</a>
+          </div>
         </article>
 
         <article class="card">
           <div class="label"><span aria-hidden="true"></span> 学术主页</div>
           <h2 class="title">Academic · 研究与成果</h2>
           <p class="desc">论文、项目与学术轨迹，收敛于此。关注深度与扎实积累。</p>
-          <a class="cta" href="https://academic.sixhz.top" target="_blank" rel="noopener noreferrer">打开学术主页 →</a>
+          <div class="cta-group">
+            <a class="cta" href="https://academic.sixhz.top" target="_blank" rel="noopener noreferrer">打开学术主页 →</a>
+          </div>
         </article>
       </div>
     </section>
