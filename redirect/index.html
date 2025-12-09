@@ -31,7 +31,7 @@
       font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
       display: grid;
       place-items: center;
-      padding: 48px 24px;
+      padding: 40px 20px;
     }
     main {
       width: min(960px, 100%);
@@ -70,7 +70,6 @@
       border: 3px solid var(--ink);
       background: var(--accent);
       box-shadow: 6px 6px 0 var(--ink);
-      text-transform: uppercase;
       border-radius: var(--radius-md);
     }
     .tagline {
@@ -181,13 +180,35 @@
       align-items: center;
       gap: 12px;
     }
+    .footer-note {
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-text { display: inline; }
+    .footer-made { margin: 0; }
+    .footer-mobile-note {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+    }
     @media (max-width: 600px) {
-      header { padding: 24px; }
-      section { padding: 24px; }
-      footer { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
-      .logo { box-shadow: 4px 4px 0 var(--ink); }
-      .card { box-shadow: 4px 4px 0 var(--ink); }
-      .cta { width: 100%; justify-content: center; text-align: center; }
+      body { padding: 20px 14px; }
+      header { padding: 18px; }
+      section { padding: 18px; }
+      footer { padding: 12px 18px 18px; flex-direction: column; align-items: flex-start; gap: 6px; }
+      .logo { box-shadow: 4px 4px 0 var(--ink); font-size: 24px; padding: 6px 10px; }
+      .tagline { font-size: 15px; padding: 6px 10px; }
+      .card { padding: 16px 16px 14px; box-shadow: 4px 4px 0 var(--ink); }
+      .title { font-size: 20px; margin-bottom: 8px; }
+      .desc { font-size: 14px; line-height: 1.45; }
+      .cta { width: 100%; justify-content: center; text-align: center; padding: 10px 12px; }
+      .links { gap: 12px; }
+      .footer-note,
+      .footer-made { display: none; }
+      .footer-mobile-note { display: inline-flex; }
     }
   </style>
 </head>
@@ -223,8 +244,9 @@
     </section>
 
     <footer>
-      <div>◎ 点击直达 · No ads · No distractions</div>
-      <div>made for sixhz.top</div>
+      <div class="footer-note"><span class="footer-glyph" aria-hidden="true">◎</span><span class="footer-text">点击直达 · No ads · No distractions</span></div>
+      <div class="footer-made">made for sixhz.top</div>
+      <div class="footer-mobile-note"><span aria-hidden="true">◎</span><span>made for sixhz.top</span></div>
     </footer>
   </main>
 </body>
