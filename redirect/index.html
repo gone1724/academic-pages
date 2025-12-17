@@ -254,10 +254,13 @@ body {
     // 页面加载后立即计算跳转地址，避免首次点击才生成
     window.addEventListener('DOMContentLoaded', () => {
       const currentHost = window.location.hostname;
-      // Strip leading subdomain (e.g., www.foo.bar => foo.bar) so we can rebuild `blog.foo.bar`
+      // Strip only the leading subdomain (e.g., www.foo.bar => foo.bar) so we can rebuild `blog.foo.bar`.
+      // If we are already at the root (foo.bar or localhost), keep it unchanged.
       const baseHost = (() => {
         const parts = currentHost.split('.');
-        return parts.length > 2 ? parts.slice(-2).join('.') : currentHost;
+        const isIPv4 = parts.length === 4 && parts.every((p) => /^\d+$/.test(p));
+        if (currentHost === 'localhost' || isIPv4) return currentHost;
+        return parts.length >= 2 ? parts.slice(-2).join('.') : currentHost;
       })();
       const protocol = 'https:'; // 始终使用 https 生成并复制链接
 
