@@ -50,7 +50,7 @@ body {
     }
     header, section {
       position: relative;
-      padding: 24px 28px;
+      padding: 12px 24px;
       z-index: 1;
     }
     header {
@@ -61,29 +61,34 @@ body {
       border-bottom: 4px solid var(--ink);
       background: repeating-linear-gradient(45deg, rgba(0,0,0,0.04), rgba(0,0,0,0.04) 12px, transparent 12px, transparent 24px);
     }
-    .logo,
-    .tagline {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      min-height: 42px;
-      border: 3px solid var(--ink);
-      border-radius: var(--radius-md);
-      line-height: 1.1;
-      letter-spacing: 0.02em;
+    .hitokoto-banner {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin: 0.05rem 0 0.15rem;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      text-align: center;
     }
-    .logo {
-      font-weight: 700;
-      font-size: clamp(20px, 2.5vw, 24px);
-      background: var(--accent);
+    .hitokoto-text {
+      color: #0f172a;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      text-align: center;
+      min-height: 1.4rem;
+      display: block;
+      width: 100%;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      transition: opacity 0.5s ease;
+      opacity: 1;
     }
-    .tagline {
-      font-size: clamp(16px, 2vw, 20px);
-      margin: 0;
-      font-weight: 700;
-      color: var(--ink);
-      background: #e8e4d9;
+    .hitokoto-text.is-fading {
+      opacity: 0;
     }
     .links {
       display: grid;
@@ -193,16 +198,13 @@ body {
       header { padding: 10px; }
       section { padding: 10px; }
       footer { padding: 8px 10px 10px; flex-direction: column; align-items: flex-start; gap: 6px; }
-      .logo { font-size: 14px; padding: 5px 8px; border-width: 2px; line-height: 1.02; }
-      .logo,
-      .tagline { padding: 5px 8px; min-height: 32px; border-width: 2px; border-radius: var(--radius-sm); }
-      .tagline { font-size: 13px; }
       .card { padding: 10px 10px 10px; box-shadow: 3px 3px 0 var(--ink); }
       .title { font-size: 18px; margin-bottom: 6px; }
       .desc { font-size: 12px; line-height: 1.35; }
       .cta { width: 100%; justify-content: center; text-align: center; padding: 8px 10px; }
       .cta-group { gap: 8px; }
       .links { gap: 8px; }
+      .hitokoto-text { font-size: 1.05rem; line-height: 1.35; }
       .footer-note,
       .footer-made { display: none; }
       .footer-mobile-note { display: inline-flex; }
@@ -212,9 +214,10 @@ body {
 <body>
   <main>
     <div class="noise" aria-hidden="true"></div>
-    <header>
-      <div class="logo">SixHz</div>
-      <p class="tagline">点击按钮，直达目标</p>
+  <header>
+      <div class="hitokoto-banner" aria-live="polite">
+        <span class="hitokoto-text" id="hitokotoText">三十功名尘与土，八千里路云和月。</span>
+      </div>
     </header>
 
     <section aria-label="links">
@@ -246,5 +249,24 @@ body {
       <div class="footer-mobile-note"><span aria-hidden="true">◎</span><span>made for sixhz.top</span></div>
     </footer>
   </main>
+  <script>
+    (function loadHitokoto() {
+      var textEl = document.getElementById("hitokotoText");
+      if (!textEl) return;
+      fetch("https://v1.hitokoto.cn?c=i&encode=json")
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (!data || !data.hitokoto) return;
+          textEl.classList.add("is-fading");
+          setTimeout(function () {
+            textEl.textContent = data.hitokoto;
+            textEl.classList.remove("is-fading");
+          }, 120);
+        })
+        .catch(function () {
+          textEl.textContent = "三十功名尘与土，八千里路云和月。";
+        });
+    })();
+  </script>
 </body>
 </html>
