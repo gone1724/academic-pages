@@ -84,7 +84,7 @@ body {
       width: 100%;
       overflow-wrap: anywhere;
       word-break: break-word;
-      transition: opacity 0.5s ease;
+      transition: opacity 1s ease;
       opacity: 1;
     }
     .hitokoto-text.is-fading {
@@ -253,19 +253,56 @@ body {
     (function loadHitokoto() {
       var textEl = document.getElementById("hitokotoText");
       if (!textEl) return;
-      fetch("https://v1.hitokoto.cn?c=i&encode=json")
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (!data || !data.hitokoto) return;
-          textEl.classList.add("is-fading");
-          setTimeout(function () {
-            textEl.textContent = data.hitokoto;
-            textEl.classList.remove("is-fading");
-          }, 120);
-        })
-        .catch(function () {
-          textEl.textContent = "三十功名尘与土，八千里路云和月。";
+
+      var FALLBACK = "采菊东篱下，悠然见南山。";
+      var nextQuote = null;
+      textEl.textContent = FALLBACK;
+
+      function fadeTo(text) {
+        textEl.classList.add("is-fading");
+        setTimeout(function () {
+          textEl.textContent = text;
+          textEl.classList.remove("is-fading");
+        }, 500);
+      }
+
+      function fetchNext() {
+        return fetch("https://v1.hitokoto.cn?c=i&encode=json")
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            return data && data.hitokoto ? data.hitokoto : null;
+          })
+          .catch(function () { return null; });
+      }
+
+      function queueNext() {
+        fetchNext().then(function (quote) {
+          nextQuote = quote;
         });
+      }
+
+      function swap() {
+        if (!nextQuote) {
+          // No new quote; keep fallback without animation and keep trying.
+          if (textEl.textContent !== FALLBACK) {
+            textEl.textContent = FALLBACK;
+          }
+          queueNext();
+          return;
+        }
+        var incoming = nextQuote;
+        nextQuote = null;
+        if (incoming === textEl.textContent) {
+          queueNext();
+          return;
+        }
+        fadeTo(incoming);
+        queueNext();
+      }
+
+      queueNext();             // prefetch immediately
+      setTimeout(swap, 10000); // first swap after 10s
+      setInterval(swap, 10000); // subsequent swaps every 10s
     })();
   </script>
 </body>
