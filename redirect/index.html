@@ -61,25 +61,29 @@ body {
       border-bottom: 4px solid var(--ink);
       background: repeating-linear-gradient(45deg, rgba(0,0,0,0.04), rgba(0,0,0,0.04) 12px, transparent 12px, transparent 24px);
     }
+    .logo,
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      min-height: 42px;
+      border: 3px solid var(--ink);
+      border-radius: var(--radius-md);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
     .logo {
       font-weight: 700;
       font-size: clamp(20px, 2.5vw, 24px);
-      letter-spacing: 0.02em;
-      padding: 6px 12px;
-      line-height: 1.1;
-      border: 3px solid var(--ink);
       background: var(--accent);
-      border-radius: var(--radius-md);
     }
     .tagline {
       font-size: clamp(16px, 2vw, 20px);
       margin: 0;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--ink);
-      padding: 8px 12px;
       background: #e8e4d9;
-      border: 2px solid var(--ink);
-      border-radius: var(--radius-sm);
     }
     .links {
       display: grid;
@@ -190,7 +194,9 @@ body {
       section { padding: 10px; }
       footer { padding: 8px 10px 10px; flex-direction: column; align-items: flex-start; gap: 6px; }
       .logo { font-size: 14px; padding: 5px 8px; border-width: 2px; line-height: 1.02; }
-      .tagline { font-size: 13px; padding: 5px 8px; }
+      .logo,
+      .tagline { padding: 5px 8px; min-height: 32px; border-width: 2px; border-radius: var(--radius-sm); }
+      .tagline { font-size: 13px; }
       .card { padding: 10px 10px 10px; box-shadow: 3px 3px 0 var(--ink); }
       .title { font-size: 18px; margin-bottom: 6px; }
       .desc { font-size: 12px; line-height: 1.35; }
@@ -208,7 +214,7 @@ body {
     <div class="noise" aria-hidden="true"></div>
     <header>
       <div class="logo">SixHz</div>
-      <p class="tagline">敲击方块，直达目标</p>
+      <p class="tagline">点击按钮，直达目标</p>
     </header>
 
     <section aria-label="links">
@@ -219,7 +225,7 @@ body {
           <p class="desc">技术、随笔、构想在这里留下痕迹。保持更新，保持锋利。</p>
           <div class="cta-group">
             <a class="cta" href="https://blog.sixhz.com/" target="_blank" rel="noopener noreferrer">进入博客 →</a>
-            <a class="cta" href="https://sixhz.pages.dev/" target="_blank" rel="noopener noreferrer">静态备份 →</a>
+            <a class="cta" href="https://sixhz.pages.dev/" target="_blank" rel="noopener noreferrer">进入备份 →</a>
           </div>
         </article>
 
