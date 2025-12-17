@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="msvalidate.01" content="89A0DDDA0371BB0C5E12E3095323E80B" />
   <title>SixHz 跳转页</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -227,7 +228,7 @@
           <h2 class="title">Blog · 思考与记录</h2>
           <p class="desc">技术、随笔、构想在这里留下痕迹。保持更新，保持锋利。</p>
           <div class="cta-group">
-            <a class="cta" href="https://blog.sixhz.top" target="_blank" rel="noopener noreferrer">进入博客 →</a>
+            <a class="cta" href="javascript:void(0)" data-blog-link target="_blank" rel="noopener noreferrer">进入博客 →</a>
             <a class="cta" href="https://sixhz.pages.dev/" target="_blank" rel="noopener noreferrer">静态备份 →</a>
           </div>
         </article>
@@ -237,7 +238,7 @@
           <h2 class="title">Academic · 研究与成果</h2>
           <p class="desc">论文、项目与学术轨迹，收敛于此。关注深度与扎实积累。</p>
           <div class="cta-group">
-            <a class="cta" href="https://academic.sixhz.top" target="_blank" rel="noopener noreferrer">打开学术主页 →</a>
+            <a class="cta" href="javascript:void(0)" data-academic-link target="_blank" rel="noopener noreferrer">打开学术主页 →</a>
           </div>
         </article>
       </div>
@@ -249,5 +250,22 @@
       <div class="footer-mobile-note"><span aria-hidden="true">◎</span><span>made for sixhz.top</span></div>
     </footer>
   </main>
+  <script>
+    // 动态生成跳转链接
+    (function() {
+      const currentHost = window.location.hostname;
+      const protocol = window.location.protocol;
+
+      // 生成博客跳转链接
+      const blogLink = document.querySelector('[data-blog-link]');
+      const blogTargetUrl = protocol + '//blog.' + currentHost;
+      blogLink.href = blogTargetUrl;
+
+      // 生成学术主页跳转链接
+      const academicLink = document.querySelector('[data-academic-link]');
+      const academicTargetUrl = protocol + '//academic.' + currentHost;
+      academicLink.href = academicTargetUrl;
+    })();
+  </script>
 </body>
 </html>
