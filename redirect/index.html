@@ -227,8 +227,8 @@ body {
           <h2 class="title">Blog · 思考与记录</h2>
           <p class="desc">技术、随笔、构想在这里留下痕迹。保持更新，保持锋利。</p>
           <div class="cta-group">
-            <a class="cta" href="javascript:void(0)" data-blog-link target="_blank" rel="noopener noreferrer">进入博客 →</a>
-            <a class="cta" href="https://sixhz.pages.dev/" data-backup-link target="_blank" rel="noopener noreferrer">静态备份 →</a>
+            <a class="cta" href="https://blog.sixhz.com/" target="_blank" rel="noopener noreferrer">进入博客 →</a>
+            <a class="cta" href="https://sixhz.pages.dev/" target="_blank" rel="noopener noreferrer">静态备份 →</a>
           </div>
         </article>
 
@@ -237,7 +237,7 @@ body {
           <h2 class="title">Academic · 研究与成果</h2>
           <p class="desc">论文、项目与学术轨迹，收敛于此。关注深度与扎实积累。</p>
           <div class="cta-group">
-            <a class="cta" href="javascript:void(0)" data-academic-link target="_blank" rel="noopener noreferrer">打开学术主页 →</a>
+            <a class="cta" href="https://academic.sixhz.com/" target="_blank" rel="noopener noreferrer">打开学术主页 →</a>
           </div>
         </article>
       </div>
@@ -249,48 +249,5 @@ body {
       <div class="footer-mobile-note"><span aria-hidden="true">◎</span><span>made for sixhz.top</span></div>
     </footer>
   </main>
-  <script>
-    // 页面加载后立即计算跳转地址，避免首次点击才生成
-    window.addEventListener('DOMContentLoaded', () => {
-      const currentHost = window.location.hostname;
-      // Strip only the leading subdomain (e.g., www.foo.bar => foo.bar) so we can rebuild `blog.foo.bar`.
-      // If we are already at the root (foo.bar or localhost), keep it unchanged.
-      const baseHost = (() => {
-        const parts = currentHost.split('.');
-        const isIPv4 = parts.length === 4 && parts.every((p) => /^\d+$/.test(p));
-        if (currentHost === 'localhost' || isIPv4) return currentHost;
-        return parts.length >= 2 ? parts.slice(-2).join('.') : currentHost;
-      })();
-      const protocol = 'https:'; // 始终使用 https 生成并复制链接
-
-      const setLink = (selector, subdomain) => {
-        const link = document.querySelector(selector);
-        if (!link) return;
-        link.href = protocol + '//' + subdomain + '.' + baseHost;
-      };
-
-      setLink('[data-blog-link]', 'blog');
-      setLink('[data-academic-link]', 'academic');
-
-      const copyToClipboard = async (text) => {
-        if (!navigator.clipboard) return;
-        try {
-          await navigator.clipboard.writeText(text);
-        } catch (e) {
-          // ignore clipboard failures to avoid blocking navigation
-        }
-      };
-
-      const attachCopy = (selector) => {
-        const link = document.querySelector(selector);
-        if (!link) return;
-        link.addEventListener('click', () => copyToClipboard(link.href));
-      };
-
-      attachCopy('[data-blog-link]');
-      attachCopy('[data-backup-link]');
-      attachCopy('[data-academic-link]');
-    });
-  </script>
 </body>
 </html>
