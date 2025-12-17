@@ -229,7 +229,7 @@
           <p class="desc">技术、随笔、构想在这里留下痕迹。保持更新，保持锋利。</p>
           <div class="cta-group">
             <a class="cta" href="javascript:void(0)" data-blog-link target="_blank" rel="noopener noreferrer">进入博客 →</a>
-            <a class="cta" href="https://sixhz.pages.dev/" target="_blank" rel="noopener noreferrer">静态备份 →</a>
+            <a class="cta" href="https://sixhz.pages.dev/" data-backup-link target="_blank" rel="noopener noreferrer">静态备份 →</a>
           </div>
         </article>
 
@@ -254,7 +254,7 @@
     // 页面加载后立即计算跳转地址，避免首次点击才生成
     window.addEventListener('DOMContentLoaded', () => {
       const currentHost = window.location.hostname;
-      const protocol = window.location.protocol;
+      const protocol = 'https:'; // 始终使用 https 生成并复制链接
 
       const setLink = (selector, subdomain) => {
         const link = document.querySelector(selector);
@@ -264,6 +264,25 @@
 
       setLink('[data-blog-link]', 'blog');
       setLink('[data-academic-link]', 'academic');
+
+      const copyToClipboard = async (text) => {
+        if (!navigator.clipboard) return;
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (e) {
+          // ignore clipboard failures to avoid blocking navigation
+        }
+      };
+
+      const attachCopy = (selector) => {
+        const link = document.querySelector(selector);
+        if (!link) return;
+        link.addEventListener('click', () => copyToClipboard(link.href));
+      };
+
+      attachCopy('[data-blog-link]');
+      attachCopy('[data-backup-link]');
+      attachCopy('[data-academic-link]');
     });
   </script>
 </body>
