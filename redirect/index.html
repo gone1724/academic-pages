@@ -267,7 +267,7 @@ body {
       }
 
       function fetchNext() {
-        return fetch("https://v1.hitokoto.cn?c=i&encode=json")
+        return fetch("https://v1.hitokoto.cn?c=i&encode=json&max_length=16")
           .then(function (res) { return res.json(); })
           .then(function (data) {
             return data && data.hitokoto ? data.hitokoto : null;
@@ -301,8 +301,8 @@ body {
       }
 
       queueNext();             // prefetch immediately
-      setTimeout(swap, 10000); // first swap after 10s
-      setInterval(swap, 10000); // subsequent swaps every 10s
+      setTimeout(swap, 12000); // first swap after 12s
+      setInterval(swap, 12000); // subsequent swaps every 12s
     })();
   </script>
 </body>
