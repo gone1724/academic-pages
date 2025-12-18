@@ -389,7 +389,6 @@
 
         function swap() {
           if (!nextQuote) {
-            // No new quote; keep fallback without animation and keep trying.
             if (textEl.textContent !== FALLBACK) {
               textEl.textContent = FALLBACK;
             }
@@ -406,15 +405,74 @@
           queueNext();
         }
 
-        queueNext(); // prefetch immediately
-        setTimeout(swap, 12000); // first swap after 12s
-        setInterval(swap, 12000); // subsequent swaps every 12s
+        queueNext();
+        setTimeout(swap, 12000);
+        setInterval(swap, 12000);
       })();
     </script>
-    <script
-      src="//instant.page/5.2.0"
-      type="module"
-      integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"
-    ></script>
+    <script type="module">
+      let t, e;
+      const n = new Set(),
+        o = document.createElement("link"),
+        s =
+          o.relList &&
+          o.relList.supports &&
+          o.relList.supports("prefetch") &&
+          window.IntersectionObserver &&
+          "isInputPending" in navigator;
+      let i = "instantVaryAccept" in document.body.dataset || "Shopify" in window;
+      function a(t) {
+        if (n.has(t)) return;
+        const e = document.createElement("link");
+        (e.rel = "prefetch"),
+          (e.href = t),
+          (e.as = "document"),
+          document.head.appendChild(e),
+          n.add(t);
+      }
+      !(function () {
+        if (!s) return;
+        const n = { capture: !0, passive: !0 };
+        let o,
+          r = 50;
+        function c(t) {
+          (e = performance.now());
+          const n = t.target.closest("a");
+          i ||
+            (n &&
+              n.href &&
+              (!n.target || "_self" === n.target) &&
+              (n.origin === location.origin ||
+                n.origin === location.origin.replace(/^http:/, "https:")) &&
+              !n.href.includes("?") &&
+              !n.href.includes("#") &&
+              "no" != n.dataset.instant &&
+              ((o = n),
+              o.addEventListener("mouseout", u, n),
+              (r = 1100),
+              (t = setTimeout(() => a(o.href), r))));
+        }
+        function u(n) {
+          (n.relatedTarget &&
+            n.target.closest("a") == n.relatedTarget.closest("a")) ||
+            (o.removeEventListener("mouseout", u), (o = null), (t = clearTimeout(t)));
+        }
+        function l(n) {
+          if (e + 1100 > performance.now()) return;
+          const o = n.target.closest("a");
+          o &&
+            o.href &&
+            (!o.target || "_self" === o.target) &&
+            (o.origin === location.origin ||
+              o.origin === location.origin.replace(/^http:/, "https:")) &&
+            !o.href.includes("?") &&
+            !o.href.includes("#") &&
+            "no" != o.dataset.instant &&
+            a(o.href);
+        }
+        document.body.addEventListener("touchstart", c, n),
+          document.body.addEventListener("mouseover", l, n);
+      })();
+    </script>
   </body>
 </html>
