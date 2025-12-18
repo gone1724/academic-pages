@@ -1,309 +1,407 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SixHz 跳转页</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://academic.sixhz.top/images/favicon/favicon.ico" type="image/x-icon">
-  <style>
-    :root {
-      --bg: #f4f1e6;
-      --ink: #0f0f0f;
-      --accent:rgb(240, 117, 73);
-      --accent-2: #0888f1;
-      --block: #ffffff;
-      --shadow: 8px 8px 0 #0f0f0f;
-      --radius-lg: 16px;
-      --radius-md: 12px;
-      --radius-sm: 10px;
-    }
-    * { box-sizing: border-box; }
-body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(circle at 20% 20%, rgba(255, 111, 60, 0.18), transparent 40%),
-                  radial-gradient(circle at 78% 26%, rgba(246, 180, 0, 0.16), transparent 45%),
-                  linear-gradient(135deg, #f7f5ed 0%, #efe9dc 100%);
-      color: var(--ink);
-      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
-      display: grid;
-      place-items: center;
-      padding: 28px 16px;
-    }
-    main {
-      width: min(960px, 100%);
-      background: var(--block);
-      border: 4px solid var(--ink);
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-    }
-    .noise {
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-      pointer-events: none;
-      mix-blend-mode: multiply;
-    }
-    header, section {
-      position: relative;
-      padding: 12px 24px;
-      z-index: 1;
-    }
-    header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 16px;
-      border-bottom: 4px solid var(--ink);
-      background: repeating-linear-gradient(45deg, rgba(0,0,0,0.04), rgba(0,0,0,0.04) 12px, transparent 12px, transparent 24px);
-    }
-    .hitokoto-banner {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      margin: 0.05rem 0 0.15rem;
-      padding: 0;
-      border-radius: 0;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      text-align: center;
-    }
-    .hitokoto-text {
-      color: #0f172a;
-      font-size: 1.4rem;
-      line-height: 1.4;
-      text-align: center;
-      min-height: 1.4rem;
-      display: block;
-      width: 100%;
-      overflow-wrap: anywhere;
-      word-break: break-word;
-      transition: opacity 1s ease;
-      opacity: 1;
-    }
-    .hitokoto-text.is-fading {
-      opacity: 0;
-    }
-    .links {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      position: relative;
-      padding: 16px 16px 14px;
-      border: 3px solid var(--ink);
-      background: #fffaf4;
-      box-shadow: 6px 6px 0 var(--ink);
-      transition: transform 120ms ease, box-shadow 120ms ease;
-      border-radius: var(--radius-lg);
-    }
-    .card:hover {
-      transform: translate(-4px, -4px);
-      box-shadow: 10px 10px 0 var(--ink);
-    }
-    .label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      margin-bottom: 10px;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: var(--ink);
-      color: #fff;
-      border: 2px solid var(--ink);
-      border-radius: var(--radius-sm);
-    }
-    .label span {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      background: var(--accent-2);
-      box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ink);
-    }
-    .title {
-      font-size: clamp(22px, 3vw, 28px);
-      margin: 0 0 10px;
-    }
-    .desc {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.5;
-      font-family: "JetBrains Mono", monospace;
-    }
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 16px;
-      padding: 10px 14px;
-      border: 3px solid var(--ink);
-      background: var(--accent-2);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      border-radius: var(--radius-md);
-      box-shadow: 4px 4px 0 var(--ink);
-      transition: transform 120ms ease, box-shadow 120ms ease;
-    }
-    .cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 16px;
-    }
-    .cta-group .cta {
-      margin-top: 0;
-    }
-    .cta:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0 var(--ink);
-    }
-    footer {
-      padding: 14px 28px 20px;
-      border-top: 4px solid var(--ink);
-      background: #f4f1e6;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 13px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-    .footer-note {
-      margin: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .footer-text { display: inline; }
-    .footer-made { margin: 0; }
-    .footer-mobile-note {
-      display: none;
-      align-items: center;
-      gap: 8px;
-      margin: 0;
-    }
-    @media (max-width: 600px) {
-      body { padding: 10px 8px; }
-      header { padding: 10px; }
-      section { padding: 10px; }
-      footer { padding: 8px 10px 10px; flex-direction: column; align-items: flex-start; gap: 6px; }
-      .card { padding: 10px 10px 10px; box-shadow: 3px 3px 0 var(--ink); }
-      .title { font-size: 18px; margin-bottom: 6px; }
-      .desc { font-size: 12px; line-height: 1.35; }
-      .cta { width: 100%; justify-content: center; text-align: center; padding: 8px 10px; }
-      .cta-group { gap: 8px; }
-      .links { gap: 8px; }
-      .hitokoto-text { font-size: 1.05rem; line-height: 1.35; }
-      .footer-note,
-      .footer-made { display: none; }
-      .footer-mobile-note { display: inline-flex; }
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <div class="noise" aria-hidden="true"></div>
-  <header>
-      <div class="hitokoto-banner" aria-live="polite">
-        <span class="hitokoto-text" id="hitokotoText">三十功名尘与土，八千里路云和月。</span>
-      </div>
-    </header>
-
-    <section aria-label="links">
-      <div class="links">
-        <article class="card">
-          <div class="label"><span aria-hidden="true"></span> 博客</div>
-          <h2 class="title">Blog · 思考与记录</h2>
-          <p class="desc">技术、随笔、构想在这里留下痕迹。保持更新，保持锋利。</p>
-          <div class="cta-group">
-            <a class="cta" href="https://blog.sixhz.com/" target="_blank" rel="noopener noreferrer">进入博客 →</a>
-            <a class="cta" href="https://sixhz.pages.dev/" target="_blank" rel="noopener noreferrer">进入备份 →</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="label"><span aria-hidden="true"></span> 学术主页</div>
-          <h2 class="title">Academic · 研究与成果</h2>
-          <p class="desc">论文、项目与学术轨迹，收敛于此。关注深度与扎实积累。</p>
-          <div class="cta-group">
-            <a class="cta" href="https://academic.sixhz.com/" target="_blank" rel="noopener noreferrer">打开学术主页 →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <footer>
-      <div class="footer-note"><span class="footer-glyph" aria-hidden="true">◎</span><span class="footer-text">点击直达 · No ads · No distractions</span></div>
-      <div class="footer-made">made for sixhz.top</div>
-      <div class="footer-mobile-note"><span aria-hidden="true">◎</span><span>made for sixhz.top</span></div>
-    </footer>
-  </main>
-  <script>
-    (function loadHitokoto() {
-      var textEl = document.getElementById("hitokotoText");
-      if (!textEl) return;
-
-      var FALLBACK = "采菊东篱下，悠然见南山。";
-      var nextQuote = null;
-      textEl.textContent = FALLBACK;
-
-      function fadeTo(text) {
-        textEl.classList.add("is-fading");
-        setTimeout(function () {
-          textEl.textContent = text;
-          textEl.classList.remove("is-fading");
-        }, 500);
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="msvalidate.01" content="89A0DDDA0371BB0C5E12E3095323E80B" />
+    <title>SixHz 跳转页</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://academic.sixhz.top/images/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <style>
+      :root {
+        --bg: #f4f1e6;
+        --ink: #0f0f0f;
+        --accent: rgb(240, 117, 73);
+        --accent-2: #0888f1;
+        --block: #ffffff;
+        --shadow: 8px 8px 0 #0f0f0f;
+        --radius-lg: 16px;
+        --radius-md: 12px;
+        --radius-sm: 10px;
       }
-
-      function fetchNext() {
-        return fetch("https://v1.hitokoto.cn?c=i&encode=json&max_length=16")
-          .then(function (res) { return res.json(); })
-          .then(function (data) {
-            return data && data.hitokoto ? data.hitokoto : null;
-          })
-          .catch(function () { return null; });
+      * {
+        box-sizing: border-box;
       }
-
-      function queueNext() {
-        fetchNext().then(function (quote) {
-          nextQuote = quote;
-        });
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 111, 60, 0.18),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 78% 26%,
+            rgba(246, 180, 0, 0.16),
+            transparent 45%
+          ),
+          linear-gradient(135deg, #f7f5ed 0%, #efe9dc 100%);
+        color: var(--ink);
+        font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+        display: grid;
+        place-items: center;
+        padding: 28px 16px;
       }
+      main {
+        width: min(960px, 100%);
+        background: var(--block);
+        border: 4px solid var(--ink);
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+      }
+      .noise {
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+        pointer-events: none;
+        mix-blend-mode: multiply;
+      }
+      header,
+      section {
+        position: relative;
+        padding: 12px 24px;
+        z-index: 1;
+      }
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        border-bottom: 4px solid var(--ink);
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 0.04),
+          rgba(0, 0, 0, 0.04) 12px,
+          transparent 12px,
+          transparent 24px
+        );
+      }
+      .hitokoto-banner {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0.05rem 0 0.15rem;
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        text-align: center;
+      }
+      .hitokoto-text {
+        color: #0f172a;
+        font-size: 1.4rem;
+        line-height: 1.4;
+        text-align: center;
+        min-height: 1.4rem;
+        display: block;
+        width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        transition: opacity 1s ease;
+        opacity: 1;
+      }
+      .hitokoto-text.is-fading {
+        opacity: 0;
+      }
+      .links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        position: relative;
+        padding: 16px 16px 14px;
+        border: 3px solid var(--ink);
+        background: #fffaf4;
+        box-shadow: 6px 6px 0 var(--ink);
+        transition: transform 120ms ease, box-shadow 120ms ease;
+        border-radius: var(--radius-lg);
+      }
+      .card:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 10px 10px 0 var(--ink);
+      }
+      .label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: var(--ink);
+        color: #fff;
+        border: 2px solid var(--ink);
+        border-radius: var(--radius-sm);
+      }
+      .label span {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: var(--accent-2);
+        box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ink);
+      }
+      .title {
+        font-size: clamp(22px, 3vw, 28px);
+        margin: 0 0 10px;
+      }
+      .desc {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.5;
+        font-family: "JetBrains Mono", monospace;
+      }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 16px;
+        padding: 10px 14px;
+        border: 3px solid var(--ink);
+        background: var(--accent-2);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        border-radius: var(--radius-md);
+        box-shadow: 4px 4px 0 var(--ink);
+        transition: transform 120ms ease, box-shadow 120ms ease;
+      }
+      .cta-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .cta-group .cta {
+        margin-top: 0;
+      }
+      .cta:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0 var(--ink);
+      }
+      footer {
+        padding: 14px 28px 20px;
+        border-top: 4px solid var(--ink);
+        background: #f4f1e6;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .footer-note {
+        margin: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .footer-text {
+        display: inline;
+      }
+      .footer-made {
+        margin: 0;
+      }
+      .footer-mobile-note {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 10px 8px;
+        }
+        header {
+          padding: 10px;
+        }
+        section {
+          padding: 10px;
+        }
+        footer {
+          padding: 8px 10px 10px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+        .card {
+          padding: 10px 10px 10px;
+          box-shadow: 3px 3px 0 var(--ink);
+        }
+        .title {
+          font-size: 18px;
+          margin-bottom: 6px;
+        }
+        .desc {
+          font-size: 12px;
+          line-height: 1.35;
+        }
+        .cta {
+          width: 100%;
+          justify-content: center;
+          text-align: center;
+          padding: 8px 10px;
+        }
+        .cta-group {
+          gap: 8px;
+        }
+        .links {
+          gap: 8px;
+        }
+        .hitokoto-text {
+          font-size: 1.05rem;
+          line-height: 1.35;
+        }
+        .footer-note,
+        .footer-made {
+          display: none;
+        }
+        .footer-mobile-note {
+          display: inline-flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="noise" aria-hidden="true"></div>
+      <header>
+        <div class="hitokoto-banner" aria-live="polite">
+          <span class="hitokoto-text" id="hitokotoText"
+            >三十功名尘与土，八千里路云和月。</span
+          >
+        </div>
+      </header>
 
-      function swap() {
-        if (!nextQuote) {
-          // No new quote; keep fallback without animation and keep trying.
-          if (textEl.textContent !== FALLBACK) {
-            textEl.textContent = FALLBACK;
+      <section aria-label="links">
+        <div class="links">
+          <article class="card">
+            <div class="label"><span aria-hidden="true"></span> 博客</div>
+            <h2 class="title">Blog · 思考与记录</h2>
+            <p class="desc">
+              技术、随笔、构想在这里留下痕迹。保持更新，保持锋利。
+            </p>
+            <div class="cta-group">
+              <a
+                class="cta"
+                href="https://blog.sixhz.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >进入博客 →</a
+              >
+              <a
+                class="cta"
+                href="https://sixhz.pages.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >进入备份 →</a
+              >
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="label"><span aria-hidden="true"></span> 学术主页</div>
+            <h2 class="title">Academic · 研究与成果</h2>
+            <p class="desc">
+              论文、项目与学术轨迹，收敛于此。关注深度与扎实积累。
+            </p>
+            <div class="cta-group">
+              <a
+                class="cta"
+                href="https://academic.sixhz.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >打开学术主页 →</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-note">
+          <span class="footer-glyph" aria-hidden="true">◎</span
+          ><span class="footer-text">点击直达 · No ads · No distractions</span>
+        </div>
+        <div class="footer-made">made for sixhz.top</div>
+        <div class="footer-mobile-note">
+          <span aria-hidden="true">◎</span><span>made for sixhz.top</span>
+        </div>
+      </footer>
+    </main>
+    <script>
+      (function loadHitokoto() {
+        var textEl = document.getElementById("hitokotoText");
+        if (!textEl) return;
+
+        var FALLBACK = "采菊东篱下，悠然见南山。";
+        var nextQuote = null;
+        textEl.textContent = FALLBACK;
+
+        function fadeTo(text) {
+          textEl.classList.add("is-fading");
+          setTimeout(function () {
+            textEl.textContent = text;
+            textEl.classList.remove("is-fading");
+          }, 500);
+        }
+
+        function fetchNext() {
+          return fetch("https://v1.hitokoto.cn?c=i&encode=json&max_length=16")
+            .then(function (res) {
+              return res.json();
+            })
+            .then(function (data) {
+              return data && data.hitokoto ? data.hitokoto : null;
+            })
+            .catch(function () {
+              return null;
+            });
+        }
+
+        function queueNext() {
+          fetchNext().then(function (quote) {
+            nextQuote = quote;
+          });
+        }
+
+        function swap() {
+          if (!nextQuote) {
+            // No new quote; keep fallback without animation and keep trying.
+            if (textEl.textContent !== FALLBACK) {
+              textEl.textContent = FALLBACK;
+            }
+            queueNext();
+            return;
           }
+          var incoming = nextQuote;
+          nextQuote = null;
+          if (incoming === textEl.textContent) {
+            queueNext();
+            return;
+          }
+          fadeTo(incoming);
           queueNext();
-          return;
         }
-        var incoming = nextQuote;
-        nextQuote = null;
-        if (incoming === textEl.textContent) {
-          queueNext();
-          return;
-        }
-        fadeTo(incoming);
-        queueNext();
-      }
 
-      queueNext();             // prefetch immediately
-      setTimeout(swap, 12000); // first swap after 12s
-      setInterval(swap, 12000); // subsequent swaps every 12s
-    })();
-  </script>
-</body>
+        queueNext(); // prefetch immediately
+        setTimeout(swap, 12000); // first swap after 12s
+        setInterval(swap, 12000); // subsequent swaps every 12s
+      })();
+    </script>
+  </body>
 </html>
