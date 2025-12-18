@@ -9,10 +9,7 @@
       content="SixHz 的快速跳转页：前往博客与学术主页。"
     />
     <meta property="og:title" content="SixHz 跳转页" />
-    <meta
-      property="og:description"
-      content="快速前往博客与学术主页。"
-    />
+    <meta property="og:description" content="快速前往博客与学术主页。" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sixhz.top/" />
     <meta
@@ -24,10 +21,7 @@
     <meta property="og:site_name" content="SixHz" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SixHz 跳转页" />
-    <meta
-      name="twitter:description"
-      content="快速前往博客与学术主页。"
-    />
+    <meta name="twitter:description" content="快速前往博客与学术主页。" />
     <meta
       name="twitter:image"
       content="https://sixhz.top/images/avatar/avatar1.webp"
@@ -459,7 +453,8 @@
           o.relList.supports("prefetch") &&
           window.IntersectionObserver &&
           "isInputPending" in navigator;
-      let i = "instantVaryAccept" in document.body.dataset || "Shopify" in window;
+      let i =
+        "instantVaryAccept" in document.body.dataset || "Shopify" in window;
       function a(t) {
         if (n.has(t)) return;
         const e = document.createElement("link");
@@ -475,7 +470,7 @@
         let o,
           r = 50;
         function c(t) {
-          (e = performance.now());
+          e = performance.now();
           const n = t.target.closest("a");
           i ||
             (n &&
@@ -494,7 +489,9 @@
         function u(n) {
           (n.relatedTarget &&
             n.target.closest("a") == n.relatedTarget.closest("a")) ||
-            (o.removeEventListener("mouseout", u), (o = null), (t = clearTimeout(t)));
+            (o.removeEventListener("mouseout", u),
+            (o = null),
+            (t = clearTimeout(t)));
         }
         function l(n) {
           if (e + 1100 > performance.now()) return;
