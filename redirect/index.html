@@ -443,8 +443,10 @@
             });
         }
 
-        updateQuote();
-        setInterval(updateQuote, REFRESH_MS);
+        setTimeout(function () {
+          updateQuote();
+          setInterval(updateQuote, REFRESH_MS);
+        }, REFRESH_MS);
       })();
     </script>
     <script type="module">
