@@ -403,7 +403,8 @@
         if (!textEl) return;
 
         var FALLBACK = "采菊东篱下，悠然见南山。";
-        var nextQuote = null;
+        var REFRESH_MS = 12000;
+        var inFlight = false;
         textEl.textContent = FALLBACK;
 
         function fadeTo(text) {
@@ -414,7 +415,7 @@
           }, 500);
         }
 
-        function fetchNext() {
+        function fetchQuote() {
           return fetch("https://v1.hitokoto.cn?c=i&encode=json&max_length=16")
             .then(function (res) {
               return res.json();
@@ -427,33 +428,23 @@
             });
         }
 
-        function queueNext() {
-          fetchNext().then(function (quote) {
-            nextQuote = quote;
-          });
+        function updateQuote() {
+          if (inFlight) return;
+          inFlight = true;
+          fetchQuote()
+            .then(function (quote) {
+              if (!quote || quote === textEl.textContent) {
+                return;
+              }
+              fadeTo(quote);
+            })
+            .finally(function () {
+              inFlight = false;
+            });
         }
 
-        function swap() {
-          if (!nextQuote) {
-            if (textEl.textContent !== FALLBACK) {
-              textEl.textContent = FALLBACK;
-            }
-            queueNext();
-            return;
-          }
-          var incoming = nextQuote;
-          nextQuote = null;
-          if (incoming === textEl.textContent) {
-            queueNext();
-            return;
-          }
-          fadeTo(incoming);
-          queueNext();
-        }
-
-        queueNext();
-        setTimeout(swap, 12000);
-        setInterval(swap, 12000);
+        updateQuote();
+        setInterval(updateQuote, REFRESH_MS);
       })();
     </script>
     <script type="module">
